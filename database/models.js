@@ -1,3 +1,4 @@
 module.exports = {
-    User: require('./users')
+    User: require('./users'),
+    Spotify: require('./spotifyData')
 }
