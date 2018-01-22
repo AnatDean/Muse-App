@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = Promise;
 const DB = require('../config').DB;
 const userData = require('../user-data');
-const models = require('../models/models');
+const models = require('../database/models');
 const async = require('async');
 
 mongoose.connect(DB.test, function (err) {
