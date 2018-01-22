@@ -1,7 +1,12 @@
-const {authApp} = require('../models/spotify')
+const {authApp, getToken} = require('../models/spotify')
 
 function authorise(req, res, next) {
   authApp(req, res, next)
 }
 
-module.exports = authorise
+function sendProfileData(req, res, next) {
+  getToken(req, res, next)
+  .then(tokens => res.send('Recieved Tokens'))
+}
+
+module.exports = {authorise, sendProfileData}
