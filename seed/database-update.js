@@ -1,15 +1,13 @@
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
 const DB = require('../config').DB;
-const userData = require('../user-data');
 const models = require('../database/models');
-const async = require('async');
-
+const {spotifyResults} = require('../user-data')
 mongoose.connect(DB.test, function (err) {
     if (!err) {
         console.log('connected to database');
         mongoose.connection.db.dropDatabase();
-        addUsers()
+        addMusicData()
         .then(() => {
             console.log('saved data')
             mongoose.disconnect()
@@ -17,9 +15,9 @@ mongoose.connect(DB.test, function (err) {
     }
 })
 
-function addUsers(done) {
-const user = userData.map((data) => {
-    return new models.User(data).save()
+function addMusicData(done) {
+const deets = spotifyResults.map((data) => {
+    return new models.Spotify(data).save()
 });
-return Promise.all(user);
+return Promise.all(deets);
 }
