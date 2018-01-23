@@ -6,7 +6,7 @@ const request = require('request');
 const path = require('path');
 
 function authApp(req, res, next) {
-	const scope = 'user-read-private user-read-email user-top-read';
+	const scope = 'user-read-private user-read-email user-top-read user-read-birthdate';
 	const queries = querystring.stringify({
 		response_type: 'code',
 		client_id: client_id,
@@ -102,9 +102,33 @@ function getTopArtistsAndTracks(tokens, res) {
 				topTracks: topTracks.items,
 				topArtists: topArtists.items
 			};
-			return data;
+			return [tokens, data];
 		});
-
 }
 
-module.exports = {authApp, updateUserData, getToken, getTopArtistsAndTracks};
+function fetchSpotifyProfile(tokens) {
+
+	const profileOptions = {
+		url: 'https://api.spotify.com/v1/me/',
+		json: true,
+		headers: {
+			'Authorization': 'Bearer ' + tokens.access_token
+		}
+	};
+
+	return new Promise ((resolve, reject) => {
+		request.get(profileOptions, function(error, response, body) {
+
+
+			if (error) {
+				reject(error);
+			} else {
+				resolve([tokens, body]);
+			}
+		});
+	});
+}
+
+
+
+module.exports = {authApp, updateUserData, getToken, getTopArtistsAndTracks, fetchSpotifyProfile};
