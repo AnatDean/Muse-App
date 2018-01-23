@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon listen.js"
+    "start": "nodemon listen.js",
+    "seed": " node seed/seed.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,7 @@
   "dependencies": {
 
     "lodash": "^4.17.4",
-    "mongoose": "^5.0.1"
+    "mongoose": "^5.0.1",
     "express": "^4.16.2",
     "nodemon": "^1.14.11",
     "path": "^0.12.7",

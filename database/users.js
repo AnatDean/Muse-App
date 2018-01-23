@@ -18,13 +18,9 @@ let UserSchema = new Schema({
         type: Array,
         unique: false
     },
-    Username: {
+    Email: {
         type: String,
         unique: true
-    },
-    Password: {
-        type: String,
-        unique: false
     },
     Gender: {
         type: String,

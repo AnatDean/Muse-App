@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 let spotifySchema = new Schema({
-    username: {
+    Email: {
         type: String,
         unique: true 
     },
@@ -15,9 +15,9 @@ let spotifySchema = new Schema({
         unique: false
     },
     genres: {
-        type: Array,
+        type: Object,
         unique: false
     }
 })
 
-module.exports = mongoose.model('spotifyData', spotifySchema)
+module.exports = mongoose.model('spotify_result', spotifySchema)
