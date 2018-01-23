@@ -112,7 +112,7 @@ const spotifyResults = [
 				62
 			]
 		],
-		genres: {
+		genres: JSON.stringify({
 			'alt-indie rock': 1,
 			'alternative dance': 3,
 			'chamber psych': 2,
@@ -212,7 +212,7 @@ const spotifyResults = [
 			'quiet storm': 1,
 			'soul': 2,
 			'vocal house': 1
-	    }
+		})
 	},
 	{Email: 'pkcopley@gmail.com', 
 		tracks: [
@@ -319,7 +319,7 @@ const spotifyResults = [
 				50
 			]
 		],
-		genres: {
+		genres: JSON.stringify({
 			'alternative metal': 11,
 			'groove metal': 2,
 			'melodic metalcore': 2,
@@ -393,7 +393,7 @@ const spotifyResults = [
 			'pop rock': 1,
 			'post-teen pop': 1,
 			'post-screamo': 1
-		}
+		})
 	},
 	{Email: 'anat62442@hotmail.co.uk', 
 		tracks: [
@@ -499,7 +499,7 @@ const spotifyResults = [
 				83
 			]
 		], 
-		genres: {
+		genres: JSON.stringify({
 			'alternative metal': 1,
 			'alternative rock': 1,
 			'funk metal': 1,
@@ -548,7 +548,8 @@ const spotifyResults = [
 			'indietronica': 1,
 			'new rave': 1,
 			'shimmer pop': 1,
-			'hip pop': 1}
+			'hip pop': 1
+		})
 	},
 	{Email: 'megan.field@hotmail.co.uk', 
 		tracks: [      
@@ -654,7 +655,7 @@ const spotifyResults = [
 				61
 			]
 		], 
-		genres: {
+		genres: JSON.stringify({
 			'classic funk rock': 2,
 			'dance pop': 3,
 			'funk': 2,
@@ -715,7 +716,8 @@ const spotifyResults = [
 			'pop christmas': 1,
 			'abstract beats': 1,
 			'trap latino': 1,
-			'vapor twitch': 1}
+			'vapor twitch': 1
+		})
 	}
 ];
 module.exports = {formInput, spotifyResults};
