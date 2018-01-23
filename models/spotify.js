@@ -53,7 +53,7 @@ function getToken(req, res, next) {
 }
 
 function refreshToken(req, res, next) {
-
+	
 }
 
 function getTopArtistsAndTracks(tokens, res) {
