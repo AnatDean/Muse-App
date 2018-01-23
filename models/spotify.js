@@ -56,7 +56,7 @@ function refreshToken(req, res, next) {
 
 }
 
-function getTopArtistsAndTracks(tokens, res) {
+function getSpotifyData(tokens, res) {
 
 	const topTrackOptions = {
 		url: 'https://api.spotify.com/v1/me/top/tracks',
@@ -95,16 +95,62 @@ function getTopArtistsAndTracks(tokens, res) {
 			}
 		});
 	});
-  
+
+
 	return Promise.all([trackPromise, artistPromise])
 		.then(([topTracks, topArtists]) => {
 			const data = {
 				topTracks: topTracks.items,
-				topArtists: topArtists.items
+				topArtists: topArtists.items,    
 			};
-			return data;
+
+			const artistsPromised = topArtists.items.map(artist => {
+
+				const relatedArtistOptions = {
+					url: `https://api.spotify.com/v1/artists/${artist.id}/related-artists`,
+					json: true,
+					headers: {
+						'Authorization': 'Bearer ' + tokens.access_token
+					}
+				};
+
+				const relatedArtistPromise = new Promise ((resolve, reject) => {
+
+					request.get(relatedArtistOptions, function(error, response, body) {
+      
+						if (error) {
+							reject(error);
+						} else {
+							resolve(body);
+						}
+					});
+				});
+        
+				return relatedArtistPromise;
+
+			});
+
+			return Promise.all([data, ...artistsPromised])
+				.then(([data, ...relatedArtists]) => {
+					relatedArtists.forEach((artist, i) => {
+						data.topArtists[i].relatedArtists = artist.artists.reduce((acc, artist) => {
+							acc.push({
+								name: artist.name,
+								id: artist.id,
+								genres: artist.genres,
+								popularity: artist.popularity
+              });
+              return acc;
+						}, []);
+					});
+					return data;
+				});
+      
+
 		});
+
+
 
 }
 
-module.exports = {authApp, updateUserData, getToken, getTopArtistsAndTracks};
+module.exports = {authApp, updateUserData, getToken, getSpotifyData};
