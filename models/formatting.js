@@ -16,7 +16,7 @@ const formatGenres = (topArtists) => {
 	topArtists.forEach(artist => {artist.genres.forEach(genre =>
 		(genresObject.hasOwnProperty(genre))? genresObject[genre]++ : genresObject[genre] = 1);
 	});
-	return genresObject;
+	return [genresObject];
 };
 
 module.exports = {formatTrack, formatArtists, formatGenres};

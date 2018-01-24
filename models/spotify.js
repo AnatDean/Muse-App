@@ -49,7 +49,7 @@ function getToken(req, res, next) {
 			}
 		});
 	})
-		.catch(console.log);
+		.catch('getToken',console.log);
 }
 
 function refreshToken(req, res, next) {
