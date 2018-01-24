@@ -46,11 +46,7 @@ function getToken(req, res, next) {
 					access_token: body.access_token,
 					refresh_token: body.refresh_token
 				};
-				const tokenSaver = { // saves the tokens from /authorise to the database.
-					access_token: tokens.access_token,
-					refresh_token: tokens.refresh_token
-				};
-				Token.findOneAndUpdate({name: 'user'}, {$set: {access_token: tokenSaver.access_token, refresh_token: tokenSaver.refresh_token}});
+				Token.findOneAndUpdate({name: 'user'}, {$set: {access_token: tokens.access_token, refresh_token: tokens.refresh_token}}, {upsert: true}, ((query) => {return query}) );
 				resolve(tokens);
 			} else {
 				reject(error);
@@ -140,17 +136,19 @@ function fetchSpotifyProfile(tokens) {
 }
 
 function getEmail () {
-	Token.findOne({name: 'user'})
-		.then(data => {
-			const tokens = {
-				access_token: data.access_token,
-				refresh_token: data.refresh_token
-			};
-			return fetchSpotifyProfile(tokens);
-		})
-		.then(profile => {
-			return profile.email;
-		});
+	return new Promise ((resolve, reject) => {
+		Token.findOne({name: 'user'})
+			.then(data => {
+				const tokens = {
+					access_token: data.access_token,
+					refresh_token: data.refresh_token
+				};
+				return fetchSpotifyProfile(tokens);
+			})
+			.then(profile => {	
+				resolve(profile[1].email);
+			});
+	});
 }
 
 
