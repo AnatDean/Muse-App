@@ -4,6 +4,9 @@ const client_secret = require('../config').spotifyClient.secret;
 const fs = require('fs');
 const request = require('request');
 const path = require('path');
+const {Token} = require('../database/models');
+const mongoose = require('mongoose');
+mongoose.Promise = Promise;
 
 function authApp(req, res, next) {
 	const scope = 'user-read-private user-read-email user-top-read user-read-birthdate';
@@ -43,14 +46,17 @@ function getToken(req, res, next) {
 					access_token: body.access_token,
 					refresh_token: body.refresh_token
 				};
+				Token.findOneAndUpdate({name: 'user'}, {$set: {access_token: tokens.access_token, refresh_token: tokens.refresh_token}}, {upsert: true}, ((query) => {return query}) );
 				resolve(tokens);
 			} else {
 				reject(error);
 			}
 		});
 	})
-		.catch('getToken',console.log);
+		.catch('getToken', console.log);
 }
+
+
 
 function refreshToken(req, res, next) {
 	
@@ -129,6 +135,22 @@ function fetchSpotifyProfile(tokens) {
 	});
 }
 
+function getEmail () {
+	return new Promise ((resolve, reject) => {
+		Token.findOne({name: 'user'})
+			.then(data => {
+				const tokens = {
+					access_token: data.access_token,
+					refresh_token: data.refresh_token
+				};
+				return fetchSpotifyProfile(tokens);
+			})
+			.then(profile => {	
+				resolve(profile[1].email);
+			});
+	});
+}
 
 
-module.exports = {authApp, updateUserData, getToken, getTopArtistsAndTracks, fetchSpotifyProfile};
+
+module.exports = {authApp, updateUserData, getToken, getTopArtistsAndTracks, fetchSpotifyProfile, getEmail};

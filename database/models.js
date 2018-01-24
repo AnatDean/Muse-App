@@ -1,4 +1,5 @@
 module.exports = {
 	User: require('./users'),
-	Spotify: require('./spotifyData')
+	Spotify: require('./spotifyData'),
+	Token: require('./token')
 };
