@@ -2,7 +2,7 @@ const { authApp, getToken, getTopArtistsAndTracks, fetchSpotifyProfile } = requi
 const { formatTrack, formatArtists, formatGenres } = require('../models/formatting');
 const saveApiDataToDatabase = require('../models/addToDB');
 const moment = require('moment');
-const {preciseDiff} = require('moment-precise-range-plugin');
+const preciseDiff = require('moment-precise-range-plugin');
 
 function authorise(req, res, next) {
 	authApp(req, res, next);
@@ -15,10 +15,10 @@ function sendProfileData(req, res, next) {
 		.then(([data, [tokens, body]]) => {
 			let age = moment.preciseDiff(`${body.birthdate} 20:15:00`, moment(), true);
 			let spotifyData = { Email: body.email, tracks: formatTrack(data.topTracks), artists: formatArtists(data.topArtists), genres: formatGenres(data.topArtists) }
-			let userData = { Name: body.display_name, Age: age.years, Email: body.email, picture: body.images[0].url}
-			saveApiDataToDatabase(spotifyData, userData)
+			let userData = { Name: body.display_name, Age: age.years, Email: body.email, picture: body.images[0] ? body.images[0].url : null}
+			return saveApiDataToDatabase(spotifyData, userData)
 		})
-		.then(() => res.send('all done!'))
+		.then(userData => res.send(userData))
 }
 
 

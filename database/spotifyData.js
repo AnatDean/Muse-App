@@ -15,7 +15,7 @@ let spotifySchema = new Schema({
 		unique: false
 	},
 	genres: {
-		type: String,
+		type: Object,
 		unique: false
 	}
 });
