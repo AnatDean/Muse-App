@@ -29,7 +29,7 @@ const formData = { Email: 'megan.field@hotmail.co.uk', AgeRange: [26, 35], Gende
 const saveFormData = (formData) => {
     return models.User.findOneAndUpdate({ Email: { $eq: formData.Email } }, { $set: { AgeRange: formData.AgeRange, Gender: formData.Gender, GenderPreference: formData.GenderPreference, Area: formData.Area, Bio: formData.Bio } }, { upsert: true })
         .then(user => {
-            res.send(user);
+            return;
         })
 }; 
 
@@ -37,7 +37,8 @@ const saveFormData = (formData) => {
 const updateSpotifyData = (spotifyData) => {
    return  models.Spotify.findOneAndUpdate({ Email: { $eq: spotifyData.Email }}, {$set: {tracks: spotifyData.tracks, artists: spotifyData.artists, genres: spotifyData.genres}})
    .then(user => {
-    res.send(user);
+       console.log('existing user')
+    return;
 })
 }
 
