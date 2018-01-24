@@ -1,7 +1,7 @@
 const {formatTrack, formatArtists, formatGenres} = require('./models/formatting');
 const formInput = [
 	// {firstName: 'Paul', Surname: 'Copley', Age: 31, AgeRange: {min:25, max:35}, Email: 'pkcopley@gmail.com', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://ihbgrfhg', Bio: 'I am Paul'},
-	{firstName: 'Megan', Surname: 'Field', Age: 25, AgeRange: {min:26, max:35}, Email: 'megan.field@hotmail.co.uk', Gender: 'Female', GenderPreference: ['Male', 'Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am Megan'},
+	// {firstName: 'Megan', Surname: 'Field', Age: 25, AgeRange: {min:26, max:35}, Email: 'megan.field@hotmail.co.uk', Gender: 'Female', GenderPreference: ['Male', 'Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am Megan'},
 	{firstName: 'Anat', Surname: 'Dean', Age: 21, AgeRange: {min:21, max:27}, Email: 'anat62442@hotmail.co.uk', Gender: 'Female', GenderPreference: ['Male'], Area: 'Manchester', picture: 'https://ipojearhg', Bio: 'I am Anat'},
 	{firstName: 'Sam', Surname: 'Lea', Age: 28, AgeRange: {min:26, max:35}, Email: 'dj_sam_lea@hotmail.com', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am Sam'}
 ];
@@ -550,175 +550,175 @@ const spotifyResults = [
 			// 'shimmer pop': 1,
 			// 'hip pop': 1
 		}
-	},
-	{Email: 'megan.field@hotmail.co.uk', 
-		tracks: [      
-			'Chill Out',
-			'Leaned Out',
-			'5050',
-			'It\'s A Vibe',
-			'The Healer',
-			'Sky Walker',
-			'Diddy Bop (feat. Cam O\'bi & Raury)',
-			'Never Played Me',
-			'Love$ick (feat. A$AP Rocky)',
-			'4 AM',
-			'Patience (Freestyle)',
-			'Murder She Wrote',
-			'Signs',
-			'The Way (feat. Chance the Rapper)',
-			'4r Da Squaw',
-			'Talk to Me',
-			'Locket',
-			'Wifey vs. WiFi / / / P.M.S. (feat. BR3)',
-			'Polaroids',
-			'P.Y.T. (Pretty Young Thing)'], 
-		artists: [
-			[
-				'Prince',
-				75
-			],
-			[
-				'RAY BLK',
-				58
-			],
-			[
-				'Bryson Tiller',
-				85
-			],
-			[
-				'Mos Def',
-				68
-			],
-			[
-				'PARTYNEXTDOOR',
-				81
-			],
-			[
-				'Aminé',
-				77
-			],
-			[
-				'NAO',
-				66
-			],
-			[
-				'IAMDDB',
-				58
-			],
-			[
-				'A$AP Rocky',
-				91
-			],
-			[
-				'Blood Orange',
-				62
-			],
-			[
-				'Noname',
-				66
-			],
-			[
-				'J HUS',
-				75
-			],
-			[
-				'2 Chainz',
-				88
-			],
-			[
-				'Romare',
-				55
-			],
-			[
-				'Jungle',
-				60
-			],
-			[
-				'Marvin Gaye',
-				76
-			],
-			[
-				'BJ The Chicago Kid',
-				70
-			],
-			[
-				'Drake',
-				97
-			],
-			[
-				'Rihanna',
-				93
-			],
-			[
-				'Sango',
-				61
-			]
-		], 
-		genres: {
-			'classic funk rock': 2,
-			'dance pop': 3,
-			'funk': 2,
-			'funk rock': 2,
-			'motown': 2,
-			'soul': 2,
-			'soul christmas': 3,
-			'deep indie r&b': 8,
-			'escape room': 7,
-			'indie r&b': 9,
-			'uk garage': 1,
-			'dwn trap': 3,
-			'pop': 8,
-			'pop rap': 9,
-			'r&b': 5,
-			'rap': 8,
-			'trap music': 5,
-			'alternative hip hop': 1,
-			'dirty south rap': 1,
-			'east coast hip hop': 2,
-			'gangster rap': 1,
-			'hardcore hip hop': 1,
-			'hip hop': 6,
-			'neo soul': 4,
-			'southern hip hop': 3,
-			'deep pop r&b': 2,
-			'urban contemporary': 3,
-			'underground hip hop': 4,
-			'vapor soul': 2,
-			'alternative dance': 1,
-			'chamber pop': 1,
-			'chillwave': 1,
-			'dance-punk': 1,
-			'dream pop': 1,
-			'freak folk': 1,
-			'indie pop': 1,
-			'indie rock': 1,
-			'indietronica': 3,
-			'metropopolis': 1,
-			'neo-psychedelic': 1,
-			'new rave': 2,
-			'shimmer pop': 1,
-			'synthpop': 1,
-			'house': 1,
-			'bass music': 1,
-			'chamber psych': 1,
-			'electronic': 1,
-			'float house': 1,
-			'french indietronica': 1,
-			'indie jazz': 1,
-			'microhouse': 1,
-			'ninja': 1,
-			'trip hop': 1,
-			'adult standards': 1,
-			'disco': 1,
-			'quiet storm': 1,
-			'canadian pop': 1,
-			'pop christmas': 1,
-			'abstract beats': 1,
-			'trap latino': 1,
-			'vapor twitch': 1
-		}
 	}
+	// {Email: 'megan.field@hotmail.co.uk', 
+	// 	tracks: [      
+	// 		'Chill Out',
+	// 		'Leaned Out',
+	// 		'5050',
+	// 		'It\'s A Vibe',
+	// 		'The Healer',
+	// 		'Sky Walker',
+	// 		'Diddy Bop (feat. Cam O\'bi & Raury)',
+	// 		'Never Played Me',
+	// 		'Love$ick (feat. A$AP Rocky)',
+	// 		'4 AM',
+	// 		'Patience (Freestyle)',
+	// 		'Murder She Wrote',
+	// 		'Signs',
+	// 		'The Way (feat. Chance the Rapper)',
+	// 		'4r Da Squaw',
+	// 		'Talk to Me',
+	// 		'Locket',
+	// 		'Wifey vs. WiFi / / / P.M.S. (feat. BR3)',
+	// 		'Polaroids',
+	// 		'P.Y.T. (Pretty Young Thing)'], 
+	// 	artists: [
+	// 		[
+	// 			'Prince',
+	// 			75
+	// 		],
+	// 		[
+	// 			'RAY BLK',
+	// 			58
+	// 		],
+	// 		[
+	// 			'Bryson Tiller',
+	// 			85
+	// 		],
+	// 		[
+	// 			'Mos Def',
+	// 			68
+	// 		],
+	// 		[
+	// 			'PARTYNEXTDOOR',
+	// 			81
+	// 		],
+	// 		[
+	// 			'Aminé',
+	// 			77
+	// 		],
+	// 		[
+	// 			'NAO',
+	// 			66
+	// 		],
+	// 		[
+	// 			'IAMDDB',
+	// 			58
+	// 		],
+	// 		[
+	// 			'A$AP Rocky',
+	// 			91
+	// 		],
+	// 		[
+	// 			'Blood Orange',
+	// 			62
+	// 		],
+	// 		[
+	// 			'Noname',
+	// 			66
+	// 		],
+	// 		[
+	// 			'J HUS',
+	// 			75
+	// 		],
+	// 		[
+	// 			'2 Chainz',
+	// 			88
+	// 		],
+	// 		[
+	// 			'Romare',
+	// 			55
+	// 		],
+	// 		[
+	// 			'Jungle',
+	// 			60
+	// 		],
+	// 		[
+	// 			'Marvin Gaye',
+	// 			76
+	// 		],
+	// 		[
+	// 			'BJ The Chicago Kid',
+	// 			70
+	// 		],
+	// 		[
+	// 			'Drake',
+	// 			97
+	// 		],
+	// 		[
+	// 			'Rihanna',
+	// 			93
+	// 		],
+	// 		[
+	// 			'Sango',
+	// 			61
+	// 		]
+	// 	], 
+	// 	genres: {
+	// 		'classic funk rock': 2,
+	// 		'dance pop': 3,
+	// 		'funk': 2,
+	// 		'funk rock': 2,
+	// 		'motown': 2,
+	// 		'soul': 2,
+	// 		'soul christmas': 3,
+	// 		'deep indie r&b': 8,
+	// 		'escape room': 7,
+	// 		'indie r&b': 9,
+	// 		'uk garage': 1,
+	// 		'dwn trap': 3,
+	// 		'pop': 8,
+	// 		'pop rap': 9,
+	// 		'r&b': 5,
+	// 		'rap': 8,
+	// 		'trap music': 5,
+	// 		'alternative hip hop': 1,
+	// 		'dirty south rap': 1,
+	// 		'east coast hip hop': 2,
+	// 		'gangster rap': 1,
+	// 		'hardcore hip hop': 1,
+	// 		'hip hop': 6,
+	// 		'neo soul': 4,
+	// 		'southern hip hop': 3,
+	// 		'deep pop r&b': 2,
+	// 		'urban contemporary': 3,
+	// 		'underground hip hop': 4,
+	// 		'vapor soul': 2,
+	// 		'alternative dance': 1,
+	// 		'chamber pop': 1,
+	// 		'chillwave': 1,
+	// 		'dance-punk': 1,
+	// 		'dream pop': 1,
+	// 		'freak folk': 1,
+	// 		'indie pop': 1,
+	// 		'indie rock': 1,
+	// 		'indietronica': 3,
+	// 		'metropopolis': 1,
+	// 		'neo-psychedelic': 1,
+	// 		'new rave': 2,
+	// 		'shimmer pop': 1,
+	// 		'synthpop': 1,
+	// 		'house': 1,
+	// 		'bass music': 1,
+	// 		'chamber psych': 1,
+	// 		'electronic': 1,
+	// 		'float house': 1,
+	// 		'french indietronica': 1,
+	// 		'indie jazz': 1,
+	// 		'microhouse': 1,
+	// 		'ninja': 1,
+	// 		'trip hop': 1,
+	// 		'adult standards': 1,
+	// 		'disco': 1,
+	// 		'quiet storm': 1,
+	// 		'canadian pop': 1,
+	// 		'pop christmas': 1,
+	// 		'abstract beats': 1,
+	// 		'trap latino': 1,
+	// 		'vapor twitch': 1
+	// 	}
+	// }
 ];
 module.exports = {formInput, spotifyResults};
 
