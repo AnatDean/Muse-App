@@ -14,11 +14,14 @@ function sendProfileData(req, res, next) {
 		.then(([tokens, data]) => Promise.all([data, fetchSpotifyProfile(tokens)]))
 		.then(([data, [tokens, body]]) => {
 			let age = moment.preciseDiff(`${body.birthdate} 20:15:00`, moment(), true);
-			let spotifyData = { Email: body.email, tracks: formatTrack(data.topTracks), artists: formatArtists(data.topArtists), genres: formatGenres(data.topArtists) }
-			let userData = { Name: body.display_name, Age: age.years, Email: body.email, picture: body.images[0] ? body.images[0].url : null}
-			return saveApiDataToDatabase(spotifyData, userData)
+			let spotifyData = { Email: body.email, tracks: formatTrack(data.topTracks), artists: formatArtists(data.topArtists), genres: formatGenres(data.topArtists) };
+			let userData = { Name: body.display_name, Age: age.years, Email: body.email, picture: body.images[0] ? body.images[0].url : null};
+			return saveApiDataToDatabase(spotifyData, userData);
 		})
-		.then(userData => res.send(userData))
+		.then(([userData, spotifyData]) => res.send([userData, spotifyData]))
+		.catch(err => {
+			console.log(err)
+		});
 }
 
 
