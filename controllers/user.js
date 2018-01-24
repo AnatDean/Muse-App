@@ -1,17 +1,15 @@
 const {fetchUserProfile} = require('../models/user');
-const {getUserEmail} = require('../models/spotify');
+const {getEmail} = require('../models/spotify');
 
 
 function sendUserProfile (req, res, next) {
 
-	// getUserEmail()
-	let email = 'pkcopley@gmail.com';
-	// .then(email => {
-	return fetchUserProfile(email)
-		// })
-		.then(profile => {
-      console.log(profile);
-			res.send(profile);
+	getEmail()
+		.then(email => {
+			return fetchUserProfile(email)
+				.then(profile => {
+					res.send(profile);
+				});
 		});
 }
 
