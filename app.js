@@ -1,12 +1,13 @@
 const express = require('express');
 const apiRouter = require('./routes/apiRouter');
 const mongoose = require('mongoose');
-const db = require('./config').DB.test;
+const db = process.env.NODE_ENV || 'development'
+const url = require('./config').DB.test;
 
 const app = express();
 
-mongoose.connect(db, {autoIndex: false}, (err) => {
-	console.log(db)
+mongoose.connect(url, {autoIndex: false}, (err) => {
+	console.log(url)
 	if (err) {
 		console.log('app.js', err);
 	} else {

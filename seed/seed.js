@@ -5,19 +5,21 @@ const {formInput, spotifyResults} = require('../user-data');
 const models = require('../database/models');
 const async = require('async')
 
-mongoose.connect(DB.test, function (err) {
-	if (!err) {
-		console.log('connected to database');
-		mongoose.connection.db.dropDatabase();
-		addUsers();
-		addToken();
-		addMusicData()
-			.then(() => {
-				console.log('saved data');
-				mongoose.disconnect();
-			});
-	}
-});
+function seed() {
+	mongoose.connect(DB.test, function (err) {
+		if (!err) {
+			console.log('connected to database');
+			mongoose.connection.db.dropDatabase();
+			addUsers();
+			addToken();
+			addMusicData()
+				.then(() => {
+					console.log('saved data');
+					mongoose.disconnect();
+				});
+		}
+	});
+}
 
 function addUsers(done) {
 	const user = formInput.map((data) => {
@@ -36,3 +38,5 @@ function addMusicData(done) {
 function addToken(done) {
 	return new models.Token({name: 'user', access_token: '', refresh_token: ''}).save();
 }
+
+module.exports = seed
