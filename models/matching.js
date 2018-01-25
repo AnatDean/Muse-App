@@ -6,14 +6,12 @@ const {getEmail} = require('./spotify');
 
 
 function getEligible (email) { 
-       
 	return User.findOne({Email: email})
 		.then(user => {
-
 			let current = user;
 			let currentAgeRange = current.AgeRange;
                     
-			Promise.all(
+			return Promise.all(
 				[
 					User.find({$and: [
 						{Age : {$gte: currentAgeRange[0].min}},
@@ -23,19 +21,20 @@ function getEligible (email) {
 				]
 			)
 				.then(([eligibleAges, current]) => {
-
-					let currentGender = current.Gender;
-					let currentPreference = current.GenderPreference;
-					let currentAge = current.Age;
-
+                    
+                    
+                    
 					return eligibleAges.filter(person => {
-						if (current.Email === person.Email) return 0;
-						if (currentAge < person.AgeRange[0] || currentAge > person.AgeRange[1]) return 0;
-						if (!currentPreference.includes(person.Gender)) return 0;
-						if (!person.GenderPreference.includes(currentGender)) return 0;
-						else return 1;
+						if (
+							current.Email === person.Email ||
+                            current.Age < person.AgeRange[0] || current.Age > person.AgeRange[1] ||
+                            !current.GenderPreference.includes(person.Gender) ||
+                            !person.GenderPreference.includes(current.Gender)
+						) return false;
+						return true;
 					}).map(person => person.Email);
 				});     
+
 		});
 
 }
@@ -49,20 +48,24 @@ function ratePeople (emails) {
 				else return 0;
 			});
             
-			let currentEmail = getEmail();
-                    
-			Promise.all(
-				[
-					Spotify.findOne({Email: currentEmail}), people]
-			)
-				.then(([userObject, possibleMatches]) => {
-            
-					return possibleMatches.map(
-						function(person) {
-							return comparePeople(person, userObject);     
-						}).sort((a,b) => {
-						return b.rating - a.rating;});
+      
+
+			return getEmail()
+				.then(currentEmail => {
+					return Promise.all(
+						[
+							Spotify.findOne({Email: currentEmail}), people]
+					)
+						.then(([userObject, possibleMatches]) => {
+                
+							return possibleMatches.map(
+								function(person) {
+									return comparePeople(person, userObject);     
+								}).sort((a,b) => {
+								return b.rating - a.rating;});
+						});
 				});
+
 		});
 }
 
@@ -70,7 +73,6 @@ function ratePeople (emails) {
 
 function comparePeople (person, current) {
 
-    
 	let user = {
 		email: person.Email,
 		rating: 0

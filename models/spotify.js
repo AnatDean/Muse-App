@@ -20,7 +20,7 @@ function authApp(req, res, next) {
 }
 
 function updateUserData(req, res, next) {
-
+	
 }
 
 function getToken(req, res, next) {
