@@ -12,6 +12,7 @@ describe('Routing', () => {
     process.exit()
   })
   describe('/api/', () => {
+    this.timeout = 5000
     it('/authorise GET requests redirect to authentication by Spotify.', () => {
       return request
         .get('/api/authorise')
@@ -43,6 +44,15 @@ describe('Routing', () => {
         .expect(200)
         .then(res => {
           expect(res.body).to.be.an('array')
+        })
+    });
+    it('/user/matches PATCH requests add a user to the logged in users rejection array.', () => {
+      return request
+        .patch('/api/user/profile')
+        .send({email: 'marge.baird@hotmail.com', choice: 'rejected'})
+        .expect(200)
+        .then(res => {
+          expect(res.body.rejected).to.be.an('array')
         })
     });
   })

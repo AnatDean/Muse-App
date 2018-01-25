@@ -24,26 +24,21 @@ const saveApiDataToDatabase = (spotifyData, userData) => {
 };
 
 
-
-// const formData = { Email: 'megan.field@hotmail.co.uk', AgeRange: [26, 35], Gender: 'Female', GenderPreference: ['female, male'], Area: 'Manchester', Bio: 'for i am Megan!' }
-
 const saveFormData = (formData) => {
     return models.User.findOneAndUpdate({ Email: { $eq: formData.Email } }, { $set: { AgeRange: formData.AgeRange, Gender: formData.Gender, GenderPreference: formData.GenderPreference, Area: formData.Area, Bio: formData.Bio } }, { new: true })
-    .then(user => {
-        console.log()
-            return user;
-        })
-
+		.then(user => {
+			console.log()
+			return user;
+	})
 }; 
 
 
 const updateSpotifyData = (spotifyData) => {
-
    return  models.Spotify.findOneAndUpdate({ Email: { $eq: spotifyData.Email }}, {$set: {tracks: spotifyData.tracks, artists: spotifyData.artists, genres: spotifyData.genres}})
-   .then(user => {
-       console.log('existing user')
-    return user;
-})
+	.then(user => {
+		console.log('existing user')
+		return user;
+	})
 }
 
 
