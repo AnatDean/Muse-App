@@ -2894,6 +2894,6 @@ const spotifyResults = [
 			'chamber pop': 1,
 			'chillwave': 1
 		}
+	}
 ];
 module.exports = { formInput, spotifyResults };
-
