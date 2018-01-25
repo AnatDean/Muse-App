@@ -19,10 +19,167 @@ const formInput = [
 	{ firstName: 'John', Surname: 'Snow', Age: 24, AgeRange: { min: 20, max: 30 }, Email: 'winter@iscoming.com', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'http://tventhusiast.nintendoenthusiast.com/wp-content/uploads/sites/8/2017/08/promo323718229-1170x658.jpg', Bio: 'The north remembers!' },
 	{ firstName: 'Jane', Surname: 'Jeffries', Age: 21, AgeRange: { min: 20, max: 30 }, Email: 'jane@gmail.com', Gender: 'Female', GenderPreference: ['Male'], Area: 'Manchester', picture: 'https://assets1.cdn-mw.com/mw/images/article/art-wap-article-main/puppy-3143-7cfb4d6a42dfc7d9d1ae7e23126279e8@1x.jpg', Bio: 'A good northern lass.' },
 	{ firstName: 'Sophie', Surname: 'Andrews', Age: 19, AgeRange: { min: 18, max: 25 }, Email: 's.andrews@gmail.com', Gender: 'Female', GenderPreference: ['Male', 'Female'], Area: 'London', picture: 'http://i0.kym-cdn.com/entries/icons/mobile/000/011/365/GRUMPYCAT.jpg', Bio: 'Hey ho, let\'s go!' },
-	{ firstName: 'Boris', Surname: 'Johnson', Age: 22, AgeRange: { min: 18, max: 50 }, Email: 'damnPeasants@gmail.com', Gender: 'Male', GenderPreference: ['Male', 'Female'], Area: 'London', picture: 'https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2018/01/20/01/boris-johnson.jpg', Bio: 'Ra Ra Ra' }
+	{ firstName: 'Boris', Surname: 'Johnson', Age: 22, AgeRange: { min: 18, max: 50 }, Email: 'damnPeasants@gmail.com', Gender: 'Male', GenderPreference: ['Male', 'Female'], Area: 'London', picture: 'https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2018/01/20/01/boris-johnson.jpg', Bio: 'Ra Ra Ra' },
+	{ firstName: 'Mitch', Surname: 'Llyod', Age: 27, AgeRange: { min: 20, max: 22 }, Email: 'mitcheyMitch@gmail.com', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://files.slack.com/files-pri/T1VHRHZE2-F8VT3409E/mitchfb.jpg', Bio: 'fierce typing!' }
 ];
 
 const spotifyResults = [
+	{Email: 'mitcheyMitch@gmail.com', 
+	tracks: [
+		'Money, Money, Money',
+		'Papaoutai',
+		'Cheap Thrills',
+		'Voulez-Vous',
+		'It\'s Just My Skin',
+		'Find Me',
+		'Broken Crown',
+		'Detroit',
+		'Toxic',
+		'Circus',
+		'You',
+		'Skinny Love',
+		'Towers',
+		'Orange Sky',
+		'We Turn Red',
+		'Leaving It Up to You',
+		'Dog Days Are Over',
+		'Applause',
+		'You\'ve Got Time',
+		'In Your Hands'], 
+		artists: [
+			[
+				'Red Hot Chili Peppers',
+				86
+			],
+			[
+				'Nick Mulvey',
+				65
+			],
+			[
+				'George Ezra',
+				73
+			],
+			[
+				'Brothers Moving',
+				37
+			],
+			[
+				'Jack Johnson',
+				81
+			],
+			[
+				'The Lumineers',
+				79
+			],
+			[
+				'Sampha',
+				71
+			],
+			[
+				'Britney Spears',
+				81
+			],
+			[
+				'ABBA',
+				76
+			],
+			[
+				'Sia',
+				91
+			],
+			[
+				'Eddie Berman',
+				58
+			],
+			[
+				'Lady Gaga',
+				84
+			],
+			[
+				'Journey',
+				75
+			],
+			[
+				'Bon Iver',
+				78
+			],
+			[
+				'The Collection',
+				42
+			],
+			[
+				'Bear\'s Den',
+				64
+			],
+			[
+				'Bombay Bicycle Club',
+				64
+			],
+			[
+				'Mumford & Sons',
+				79
+			],
+			[
+				'Christina Aguilera',
+				81
+			],
+			[
+				'Kesha',
+				83
+			]
+		], 
+		genres: {
+			'alternative metal': 1,
+			'alternative rock': 1,
+			'funk metal': 1,
+			'funk rock': 1,
+			'modern rock': 5,
+			'permanent wave': 1,
+			'rock': 2,
+			'chamber pop': 3,
+			'indie anthem-folk': 3,
+			'indie folk': 8,
+			'indie r&b': 2,
+			'neo mellow': 7,
+			'folk-pop': 6,
+			'neo-singer-songwriter': 1,
+			'indie pop': 3,
+			'stomp and holler': 3,
+			'deep indie r&b': 1,
+			'neo soul': 1,
+			'pop': 6,
+			'dance pop': 5,
+			'pop christmas': 3,
+			'post-teen pop': 4,
+			'r&b': 2,
+			'urban contemporary': 2,
+			'europop': 1,
+			'mellow gold': 2,
+			'swedish pop': 1,
+			'australian dance': 1,
+			'deep new americana': 1,
+			'new americana': 2,
+			'album rock': 1,
+			'classic rock': 1,
+			'hard rock': 1,
+			'soft rock': 1,
+			'indie rock': 2,
+			'melancholia': 1,
+			'slow core': 1,
+			'christian uplift': 1,
+			'indiecoustica': 1,
+			'stomp and flutter': 1,
+			'alt-indie rock': 1,
+			'alternative dance': 1,
+			'british indie rock': 1,
+			'dance-punk': 1,
+			'garage rock': 1,
+			'indietronica': 1,
+			'new rave': 1,
+			'shimmer pop': 1,
+			'hip pop': 1
+		}
+	},
 	{
 		Email: 'dj_sam_lea@hotmail.com',
 		tracks: [
@@ -524,50 +681,50 @@ const spotifyResults = [
 			'funk metal': 1,
 			'funk rock': 1,
 			'modern rock': 5,
-			'permanent wave': 1
-			// 'rock': 2,
-			// 'chamber pop': 3,
-			// 'indie anthem-folk': 3,
-			// 'indie folk': 8,
-			// 'indie r&b': 2,
-			// 'neo mellow': 7,
-			// 'folk-pop': 6,
-			// 'neo-singer-songwriter': 1,
-			// 'indie pop': 3,
-			// 'stomp and holler': 3,
-			// 'deep indie r&b': 1,
-			// 'neo soul': 1,
-			// 'pop': 6,
-			// 'dance pop': 5,
-			// 'pop christmas': 3,
-			// 'post-teen pop': 4,
-			// 'r&b': 2,
-			// 'urban contemporary': 2,
-			// 'europop': 1,
-			// 'mellow gold': 2,
-			// 'swedish pop': 1,
-			// 'australian dance': 1,
-			// 'deep new americana': 1,
-			// 'new americana': 2,
-			// 'album rock': 1,
-			// 'classic rock': 1,
-			// 'hard rock': 1,
-			// 'soft rock': 1,
-			// 'indie rock': 2,
-			// 'melancholia': 1,
-			// 'slow core': 1,
-			// 'christian uplift': 1,
-			// 'indiecoustica': 1,
-			// 'stomp and flutter': 1,
-			// 'alt-indie rock': 1,
-			// 'alternative dance': 1,
-			// 'british indie rock': 1,
-			// 'dance-punk': 1,
-			// 'garage rock': 1,
-			// 'indietronica': 1,
-			// 'new rave': 1,
-			// 'shimmer pop': 1,
-			// 'hip pop': 1
+			'permanent wave': 1,
+			'rock': 2,
+			'chamber pop': 3,
+			'indie anthem-folk': 3,
+			'indie folk': 8,
+			'indie r&b': 2,
+			'neo mellow': 7,
+			'folk-pop': 6,
+			'neo-singer-songwriter': 1,
+			'indie pop': 3,
+			'stomp and holler': 3,
+			'deep indie r&b': 1,
+			'neo soul': 1,
+			'pop': 6,
+			'dance pop': 5,
+			'pop christmas': 3,
+			'post-teen pop': 4,
+			'r&b': 2,
+			'urban contemporary': 2,
+			'europop': 1,
+			'mellow gold': 2,
+			'swedish pop': 1,
+			'australian dance': 1,
+			'deep new americana': 1,
+			'new americana': 2,
+			'album rock': 1,
+			'classic rock': 1,
+			'hard rock': 1,
+			'soft rock': 1,
+			'indie rock': 2,
+			'melancholia': 1,
+			'slow core': 1,
+			'christian uplift': 1,
+			'indiecoustica': 1,
+			'stomp and flutter': 1,
+			'alt-indie rock': 1,
+			'alternative dance': 1,
+			'british indie rock': 1,
+			'dance-punk': 1,
+			'garage rock': 1,
+			'indietronica': 1,
+			'new rave': 1,
+			'shimmer pop': 1,
+			'hip pop': 1
 		}
 	},
 	{
