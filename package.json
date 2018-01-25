@@ -6,7 +6,7 @@
   "scripts": {
     "test": "node seed/seed.js && mocha spec/*.spec.js",
     "start": "nodemon listen.js",
-    "seed": " node seed/seed.js"
+    "seed": "node seed/seed.js"
   },
   "repository": {
     "type": "git",

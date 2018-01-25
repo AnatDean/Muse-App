@@ -9,13 +9,12 @@ function getMatches (req, res) {
 	return getEmail(req, res)
 		.then(email => {
 			return getEligible(email)
-
-				.then(eligibles => {
-					return ratePeople(eligibles);
-				})
-				.then(data => {
-					res.send(data);
-				});
+		})
+		.then(eligibles => {
+			return ratePeople(eligibles);
+		})
+		.then(data => {
+			res.send(data);
 		});
 }
 
@@ -26,4 +25,4 @@ function rejectMatches (email) {
 		});
 }
 
-module.exports = {getMatches};
+module.exports = {getMatches, rejectMatches};

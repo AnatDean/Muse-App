@@ -43,7 +43,7 @@ describe('Routing', () => {
     it('/profile', () => {
       return request
       .patch('/api/user/profile')
-      .send({Email: 'pkcopley@gmail.com', AgeRange: [27, 35], Gender: 'Male', GenderPreference: ['female'], Area: 'Manchester', Bio: 'for i am Paul!'})
+      .send({ Email: 'pkcopley@gmail.com', AgeRange: [{min: 22, max: 35}], Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', Bio: 'for i am Paul!' })
       .expect(200)
       .then(res => {
         expect(res.body.Bio).to.equal('for i am Paul!');
