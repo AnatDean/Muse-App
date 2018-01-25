@@ -1,15 +1,16 @@
 const express = require('express');
-const {sendUserProfile} = require('../controllers/user');
+
+const {sendUserProfile, updateUserProfile} = require('../controllers/user');
 const {getMatches, rejectMatches} = require('../controllers/matches');
 
 const userRouter = express.Router();
 
 userRouter.route('/profile')
-	.get(sendUserProfile);
+	.get(sendUserProfile)
+  .patch(updateUserProfile)
 
 userRouter.route('/matches')
 	.get(getMatches)
 	.patch(rejectMatches);
 
-	
 module.exports = {userRouter};

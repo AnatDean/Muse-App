@@ -5,10 +5,9 @@ const {formInput, spotifyResults} = require('../user-data');
 const models = require('../database/models');
 const async = require('async')
 
-function seed() {
 	mongoose.connect(DB.test, function (err) {
 		if (!err) {
-			console.log('connected to database');
+			console.log('seeding...');
 			mongoose.connection.db.dropDatabase();
 			addUsers();
 			addToken();
@@ -19,7 +18,6 @@ function seed() {
 				});
 		}
 	});
-}
 
 function addUsers(done) {
 	const user = formInput.map((data) => {
@@ -38,5 +36,3 @@ function addMusicData(done) {
 function addToken(done) {
 	return new models.Token({name: 'user', access_token: '', refresh_token: ''}).save();
 }
-
-module.exports = seed
