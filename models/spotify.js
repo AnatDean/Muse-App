@@ -19,11 +19,18 @@ function authApp(req, res, next) {
 	res.redirect('https://accounts.spotify.com/authorize?' + queries );
 }
 
-function updateUserData(req, res, next) {
-
+function getTokens() {
+	Token.findOne({name: 'user'})
+		.then(data => {
+			const tokens = {
+				access_token: data.access_token,
+				refresh_token: data.refresh_token
+			};
+			return tokens;
+	})
 }
 
-function getToken(req, res, next) {
+function storeToken(req, res, next) {
 	return new Promise((resolve, reject) => {
 		const code = req.query.code || null;
 
@@ -53,7 +60,7 @@ function getToken(req, res, next) {
 			}
 		});
 	})
-		.catch('getToken', console.log);
+		.catch('storeTokens', console.log);
 }
 
 
@@ -153,4 +160,4 @@ function getEmail () {
 
 
 
-module.exports = {authApp, updateUserData, getToken, getTopArtistsAndTracks, fetchSpotifyProfile, getEmail};
+module.exports = {authApp, storeToken, getTopArtistsAndTracks, fetchSpotifyProfile, getEmail};
