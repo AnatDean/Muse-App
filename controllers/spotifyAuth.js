@@ -1,4 +1,4 @@
-const { authApp, getToken, getTopArtistsAndTracks, fetchSpotifyProfile } = require('../models/spotify');
+const { authApp, storeToken, getTopArtistsAndTracks, fetchSpotifyProfile } = require('../models/spotify');
 const { formatTrack, formatArtists, formatGenres } = require('../models/formatting');
 const saveApiDataToDatabase = require('../models/addToDB');
 const moment = require('moment');
@@ -9,7 +9,7 @@ function authorise(req, res, next) {
 }
 
 function sendProfileData(req, res, next) {
-	getToken(req, res, next)
+	storeToken(req, res, next)
 		.then(tokens => getTopArtistsAndTracks(tokens, res))
 		.then(([tokens, data]) => Promise.all([data, fetchSpotifyProfile(tokens)]))
 		.then(([data, [tokens, body]]) => {
