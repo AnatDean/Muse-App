@@ -2,6 +2,7 @@ const express = require('express');
 const {authorise, sendProfileData} = require('../controllers/spotifyAuth');
 const {userRouter} = require('./user');
 const {getEmail} = require('../models/spotify');
+const {getMatches} = require('../controllers/matches')
 
 const apiRouter = express.Router();
 
@@ -13,6 +14,9 @@ apiRouter.route('/authorised')
 
 // apiRouter.route('/form')
 // 	.patch(saveFormData)
+
+apiRouter.route('/matches')
+	.get(getMatches);
 
 apiRouter.use('/user', userRouter);
 
