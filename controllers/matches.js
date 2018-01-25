@@ -6,7 +6,6 @@ const db = require('../config').DB.test;
 
 
 function getMatches (req, res) {
-
 	return getEmail(req, res)
 		.then(email => {
 			return getEligible(email)
