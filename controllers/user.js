@@ -1,19 +1,20 @@
-const {fetchUserProfile} = require('../models/user');
-let getEmailTest = require('../spec/testing-functions').getEmail 
+const { fetchUserProfile } = require('../models/user');
+const { saveFormData } = require('../models/addToDB');
+let getEmailTest = require('../spec/testing-functions').getEmail
 let getEmailDev = require('../models/spotify').getEmail;
 
 
-function sendUserProfile (req, res, next) {
-let getEmail;
+function sendUserProfile(req, res, next) {
+	let getEmail;
 
-if (process.env.NODE_ENV === "test") {
-	getEmail = getEmailTest
+	if (process.env.NODE_ENV === "test") {
+		getEmail = getEmailTest
 
-} else {
-	getEmail = getEmailDev
-}
+	} else {
+		getEmail = getEmailDev
+	}
 
-getEmail()
+	getEmail()
 		.then(email => {
 			return fetchUserProfile(email)
 				.then(profile => {
@@ -22,5 +23,10 @@ getEmail()
 		});
 }
 
-module.exports = {sendUserProfile};
+function updateUserProfile(req, res, next) {
+	saveFormData(req.body)
+		.then(user => res.send(user))
+}
+
+module.exports = { sendUserProfile, updateUserProfile };
 

@@ -11,18 +11,6 @@ apiRouter.route('/authorise')
 apiRouter.route('/authorised')
 	.get(sendProfileData);
 
-// apiRouter.route('/form')
-// 	.patch(saveFormData)
-
-apiRouter.use('/user', userRouter);
-
-apiRouter.route('/email')
-	.get((req, res, next) => {
-		res.send(getEmail(req, res, next));
-	});
-
-
-
-  
+apiRouter.use('/user', userRouter);  
 
 module.exports = apiRouter;

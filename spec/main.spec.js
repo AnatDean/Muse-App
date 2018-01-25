@@ -1,15 +1,26 @@
-const {expect} = require('chai')
+const { expect } = require('chai')
 const mongoose = require('mongoose')
 const app = require('../app')
 const request = require('supertest')(app)
-const {getEmail} = require('../models/spotify')
-
+const { getEmail } = require('../models/spotify')
+const url = require('../config').DB.test;
 process.env.NODE_ENV = "test"
 
 describe('Routing', () => {
 
+
+
+  beforeEach('', () => {
+    mongoose.connect(url, {autoIndex: false}, () => {})
+  })
+
+  afterEach('', () => {
+    // mongoose.disconnect()
+  })
+
   after('', () => {
-    process.exit();
+    mongoose.disconnect()
+    process.exit()
   })
 
   describe('/api/', () => {
@@ -21,14 +32,22 @@ describe('Routing', () => {
     });
     it('/profile', () => {
       return request
-      .get('/api/user/profile')
+        .get('/api/user/profile')
+        .expect(200)
+        .then(res => {
+          expect(res.body.AgeRange).to.be.a('array')
+          expect(res.body.GenderPreference).to.be.a('array')
+          expect(res.body.Email).to.be.a('string')
+        });
+    })
+    it('/profile', () => {
+      return request
+      .patch('/api/user/profile')
+      .send({Email: 'pkcopley@gmail.com', AgeRange: [27, 35], Gender: 'Male', GenderPreference: ['female'], Area: 'Manchester', Bio: 'for i am Paul!'})
       .expect(200)
       .then(res => {
-        expect(res.body.AgeRange).to.be.a('array')
-        expect(res.body.GenderPreference).to.be.a('array')
-        expect(res.body.Email).to.be.a('string')
-      });
+        expect(res.body.Bio).to.equal('for i am Paul!');
+      })
     })
   })
-
 });

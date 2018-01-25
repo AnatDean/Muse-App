@@ -1,9 +1,8 @@
 const express = require('express');
-const {sendUserProfile} = require('../controllers/user');
-
+const {sendUserProfile, updateUserProfile} = require('../controllers/user');
 const userRouter = express.Router();
 
 userRouter.route('/profile')
-	.get(sendUserProfile);
-
+	.get(sendUserProfile)
+	.patch(updateUserProfile)
 module.exports = {userRouter};
