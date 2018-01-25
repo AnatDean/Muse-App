@@ -10,13 +10,12 @@ apiRouter.route('/authorise')
 	.get(authorise);
 
 apiRouter.route('/authorised')
-	.get(sendProfileData);
+	.get(sendProfileData); 
 
 // apiRouter.route('/form')
 // 	.patch(saveFormData)
 
-apiRouter.route('/matches')
-	.get(getMatches);
+
 
 apiRouter.use('/user', userRouter);
 
@@ -24,6 +23,7 @@ apiRouter.route('/email')
 	.get((req, res, next) => {
 		res.send(getEmail(req, res, next));
 	});
+
 
 
 
