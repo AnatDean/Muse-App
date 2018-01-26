@@ -1,6 +1,6 @@
 const { authApp, storeToken, getTopArtistsAndTracks, fetchSpotifyProfile } = require('../models/spotify');
 const { formatTrack, formatArtists, formatGenres } = require('../models/formatting');
-const saveApiDataToDatabase = require('../models/addToDB');
+const {saveApiDataToDatabase} = require('../models/addToDB');
 const moment = require('moment');
 const preciseDiff = require('moment-precise-range-plugin');
 

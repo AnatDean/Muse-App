@@ -1,19 +1,9 @@
 const { fetchUserProfile } = require('../models/user');
 const { saveFormData } = require('../models/addToDB');
-let getEmailTest = require('../spec/testing-functions').getEmail
-let getEmailDev = require('../models/spotify').getEmail;
+let {getEmail} = require('../models/spotify');
 
 
 function sendUserProfile(req, res, next) {
-	let getEmail;
-
-	if (process.env.NODE_ENV === "test") {
-		getEmail = getEmailTest
-
-	} else {
-		getEmail = getEmailDev
-	}
-
 	getEmail()
 		.then(email => {
 			return fetchUserProfile(email)

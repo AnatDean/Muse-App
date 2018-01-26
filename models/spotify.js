@@ -153,7 +153,8 @@ function getEmail () {
 				return fetchSpotifyProfile(tokens);
 			})
 			.then(profile => {	
-				resolve(profile[1].email);
+				if (process.env.NODE_ENV === 'test') resolve('pkcopley@gmail.com')
+				else resolve(profile[1].email);
 			});
 	});
 }

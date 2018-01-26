@@ -10,33 +10,19 @@ function getEligible (email) {
 		.then(user => {
 			let current = user;
 			let currentAgeRange = current.AgeRange;
-                    
-			return Promise.all(
-				[
-					User.find({$and: [
-						{Age : {$gte: currentAgeRange[0].min}},
-						{Age : {$lte: currentAgeRange[0].max}}
-					]}),
-					current
-				]
-			)
-				.then(([eligibleAges, current]) => {
-                    
-                    
-                    
-					return eligibleAges.filter(person => {
-						if (
-							current.Email === person.Email ||
-                            current.Age < person.AgeRange[0] || current.Age > person.AgeRange[1] ||
-                            !current.GenderPreference.includes(person.Gender) ||
-                            !person.GenderPreference.includes(current.Gender)
-						) return false;
-						return true;
-					}).map(person => person.Email);
-				});     
-
-		});
-
+			return Promise.all([User.find({$and: [{Age : {$gte: currentAgeRange[0].min}},{Age : {$lte: currentAgeRange[0].max}}]}),	current])   
+		})
+		.then(([eligibleAges, current]) => { 					      
+			return eligibleAges.filter(person => {
+				if (
+					current.Email === person.Email ||
+					current.Age < person.AgeRange[0] || current.Age > person.AgeRange[1] ||
+					!current.GenderPreference.includes(person.Gender) ||
+					!person.GenderPreference.includes(current.Gender)
+				) return false;
+				return true;
+			}).map(person => person.Email);
+		});  
 }
 
 function ratePeople (emails) {
@@ -47,25 +33,17 @@ function ratePeople (emails) {
 				if (emails.includes(person.Email)) return 1;
 				else return 0;
 			});
-            
-      
-
-			return getEmail()
-				.then(currentEmail => {
-					return Promise.all(
-						[
-							Spotify.findOne({Email: currentEmail}), people]
-					)
-						.then(([userObject, possibleMatches]) => {
-                
-							return possibleMatches.map(
-								function(person) {
-									return comparePeople(person, userObject);     
-								}).sort((a,b) => {
-								return b.rating - a.rating;});
-						});
-				});
-
+      return Promise.all([getEmail(), people])
+		})
+		.then(([currentEmail, people]) => {
+			return Promise.all([Spotify.findOne({Email: currentEmail}), people])
+		})
+		.then(([userObject, possibleMatches]) => {	
+			return possibleMatches.map(
+				function(person) {
+					return comparePeople(person, userObject);     
+				}).sort((a,b) => {
+				return b.rating - a.rating;});
 		});
 }
 

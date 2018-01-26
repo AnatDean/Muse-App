@@ -20,5 +20,4 @@ mongoose.connect(url, {autoIndex: false}, (err) => {
 
 app.use('/api', apiRouter);
 
-
 module.exports = app;
