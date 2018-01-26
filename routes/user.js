@@ -5,11 +5,11 @@ const {getMatches, updateRejections} = require('../controllers/matches');
 
 const userRouter = express.Router();
 
-userRouter.route('/profile')
+userRouter.route('/profile/:email')
 	.get(sendUserProfile)
   .patch(updateUserProfile)
 
-userRouter.route('/matches')
+userRouter.route('/matches/:email')
 	.get(getMatches)
 	.patch(updateRejections);
 

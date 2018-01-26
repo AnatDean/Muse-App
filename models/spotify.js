@@ -139,8 +139,8 @@ function fetchSpotifyProfile(tokens) {
 }
 
 function getEmail (req) {
-	console.log(req.query)
-	return req.query.email;
+	console.log(req.params.email)
+	return req.params.email;
 }
 
 module.exports = {authApp, storeToken, getTopArtistsAndTracks, fetchSpotifyProfile, getEmail, getTokens};
