@@ -28,21 +28,24 @@ function getEligible (email) {
 }
 
 function ratePeople (req, emails) {
-
 	return Spotify.find()
 		.then(eligibleSpotifys => { 
 			let people = eligibleSpotifys.filter(person => {
 				if (emails.includes(person.Email)) return 1;
 				else return 0;
 			});
-			const currentEmail = getEmail(req)
+			const currentEmail = getEmail(req);
 			return Promise.all([Spotify.findOne({Email: currentEmail}), people])
 		})
-		.then(([userObject, possibleMatches]) => {	
-			return possibleMatches.map(
+		.then(([userObject, possibleMatches]) => {
+			return Promise.all(possibleMatches.map(
 				function(person) {
 					return comparePeople(person, userObject);     
-				}).sort((a,b) => {
+				}));
+		})
+		.then(matches => {
+			console.log(matches)
+			return matches.sort((a,b) => {
 				return b.rating - a.rating;});
 		});
 }
@@ -60,25 +63,41 @@ function addChoice (currentEmail, personEmail, choice) {
 
 function comparePeople (person, current) {
 
-	let user = {
-		email: person.Email,
-		rating: 0
-	};
+	return User.findOne({Email: person.Email}).lean()
+		.then(userProfile => {
+			
+			userProfile.rating = 0;
+			userProfile.matchingOn = {
+				tracks: [],
+				artists: [],
+				genres: []
+			};
+		
+			person.tracks.forEach((track) => {
+				if (current.tracks.includes(track)) {
+					userProfile.rating += 10;
+					userProfile.matchingOn.tracks.push(track);
+				} 
+			});
+		
+			let currentArtists = current.artists.map(artist => artist[0]);
+			person.artists.forEach((artist) => {
+				if (currentArtists.includes(artist[0])) {
+					userProfile.rating += 4;
+					userProfile.matchingOn.artists.push(artist[0]);
+				}
+			});
+		
+			for (let key in current.genres) {
+				if (person.genres.hasOwnProperty(key)) {
+						userProfile.rating += person.genres[key] * 2;
+						userProfile.matchingOn.genres.push(key);
+					}
+				}
 
-	person.tracks.forEach((track) => {
-		current.tracks.includes(track)  ? user.rating += 10 : null;
-	});
+			return userProfile;
+		})
 
-	let currentArtists = current.artists.map(artist => artist[0]);
-	person.artists.forEach((artist) => {
-		currentArtists.includes(artist[0])?  user.rating += 4: null;
-	});
-
-	for (let key in current.genres) {
-		if (person.genres.hasOwnProperty(key)) user.rating += person.genres[key]*2;
-	}
-
-	return user;
 }
 
 module.exports = {getEligible, ratePeople, addChoice};
