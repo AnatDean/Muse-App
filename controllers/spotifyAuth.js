@@ -18,7 +18,7 @@ function sendProfileData(req, res, next) {
 			let userData = { Name: body.display_name, Age: age.years, Email: body.email, picture: body.images[0] ? body.images[0].url : null};
 			return saveApiDataToDatabase(spotifyData, userData);
 		})
-		.then(([userData, spotifyData]) => res.status(200).send({userData, spotifyData}))
+		.then(([userData, spotifyData]) => res.redirect(`http://localhost:3001/?email=${userData.Email}`))		
 		.catch(err => {
 			console.log(err)
 		});
