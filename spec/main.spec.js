@@ -19,6 +19,11 @@ describe('Routing', () => {
         .expect(302)
         .expect('Location', 'https://accounts.spotify.com/authorize?response_type=code&client_id=8681a5901c0f4e929658533e0db138c4&scope=user-read-private%20user-read-email%20user-top-read%20user-read-birthdate&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauthorised')
     });
+    it('/refresh GET requests refresh the apps access token without exposing the token to the front end', () => {
+      return request
+        .get('/api/refresh')
+        .expect(204)
+    });
     it('user/profile GET requests return the logged in users profile.', () => {
       return request
         .get('/api/user/profile')

@@ -20,13 +20,15 @@ function authApp(req, res, next) {
 }
 
 function getTokens() {
-	Token.findOne({name: 'user'})
-		.then(data => {
-			const tokens = {
-				access_token: data.access_token,
-				refresh_token: data.refresh_token
-			};
-			return tokens;
+	return new Promise((resolve, reject) => {
+		Token.findOne({name: 'user'})
+			.then(data => {
+				const tokens = {
+					access_token: data.access_token,
+					refresh_token: data.refresh_token
+				};
+				resolve(tokens);
+		})
 	})
 }
 
@@ -159,6 +161,24 @@ function getEmail () {
 	});
 }
 
+function refreshAccessToken() {
+	return new Promise((resolve, reject) => {
+		getTokens()
+			.then(tokens => {
+				const authOptions = {
+						url: 'https://accounts.spotify.com/api/token',
+						headers: { 'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64')) },
+						form: {
+							grant_type: 'refresh_token',
+							refresh_token: tokens.refresh_token
+						},
+						json: true
+					};
+					request.post(authOptions, (err, response, body) => {
+						Token.findOneAndUpdate({name: 'user'}, {$set: {access_token: body.access_token}}, {upsert: true}, ((query) => {resolve(true)}) );
+					})
+			})
+	})
+}
 
-
-module.exports = {authApp, storeToken, getTopArtistsAndTracks, fetchSpotifyProfile, getEmail};
+module.exports = {authApp, storeToken, getTopArtistsAndTracks, fetchSpotifyProfile, getEmail, getTokens, refreshAccessToken};

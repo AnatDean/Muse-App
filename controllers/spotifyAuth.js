@@ -1,4 +1,4 @@
-const { authApp, storeToken, getTopArtistsAndTracks, fetchSpotifyProfile } = require('../models/spotify');
+const { authApp, storeToken, getTopArtistsAndTracks, fetchSpotifyProfile, getTokens, refreshAccessToken } = require('../models/spotify');
 const { formatTrack, formatArtists, formatGenres } = require('../models/formatting');
 const {saveApiDataToDatabase} = require('../models/addToDB');
 const moment = require('moment');
@@ -24,7 +24,13 @@ function sendProfileData(req, res, next) {
 		});
 }
 
+function refreshTokens(req, res, next) {
+	refreshAccessToken()
+		.then(updated => {
+			if (updated) res.status(204).send()
+			else res.status(500).send()
+		})
+}
 
 
-
-module.exports = { authorise, sendProfileData };
+module.exports = { authorise, sendProfileData, refreshTokens };

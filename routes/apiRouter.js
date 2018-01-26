@@ -1,5 +1,5 @@
 const express = require('express');
-const {authorise, sendProfileData} = require('../controllers/spotifyAuth');
+const {authorise, sendProfileData, refreshTokens} = require('../controllers/spotifyAuth');
 const {userRouter} = require('./user');
 const {getEmail} = require('../models/spotify');
 const {getMatches} = require('../controllers/matches')
@@ -11,6 +11,9 @@ apiRouter.route('/authorise')
 
 apiRouter.route('/authorised')
 	.get(sendProfileData); 
+
+apiRouter.route('/refresh')
+	.get(refreshTokens)
 
 apiRouter.use('/user', userRouter);  
 
