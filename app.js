@@ -5,14 +5,16 @@ const mongoose = require('mongoose');
 const db = process.env.NODE_ENV || 'development'
 const url = require('./config').DB.test;
 const cors = require('cors');
+const morgan = require('morgan')('dev');
 
 const app = express();
 app.use(cors())
 app.use(bodyparser.urlencoded({extended: false}))
 app.use(bodyparser.json())
+app.use(morgan);
 
 mongoose.connect(url, {autoIndex: false}, (err) => {
-	console.log(url)
+	console.log(url);
 	if (err) {
 		console.log('app.js', err);
 	} else {

@@ -6,10 +6,8 @@ const {getEmail} = require('./spotify');
 
 
 function getEligible (email) { 
-	console.log(email)
 	return User.findOne({Email: email})
 		.then(user => {
-			console.log(user)
 			let current = user;
 			let currentAgeRange = current.AgeRange;
 			return Promise.all([User.find({$and: [{Age : {$gte: currentAgeRange[0].min}},{Age : {$lte: currentAgeRange[0].max}}]}),	current])   

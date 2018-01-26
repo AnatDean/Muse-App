@@ -139,7 +139,6 @@ function fetchSpotifyProfile(tokens) {
 }
 
 function getEmail (req) {
-	console.log(req.params.email)
 	return req.params.email;
 }
 
