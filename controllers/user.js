@@ -4,13 +4,11 @@ let {getEmail} = require('../models/spotify');
 
 
 function sendUserProfile(req, res, next) {
-	getEmail()
-		.then(email => {
-			return fetchUserProfile(email)
-				.then(profile => {
-					res.send(profile);
-				});
-		});
+	const email = getEmail(req)
+		return fetchUserProfile(email)
+			.then(profile => {
+				res.send(profile);
+			});
 }
 
 function updateUserProfile(req, res, next) {
