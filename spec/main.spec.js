@@ -19,14 +19,9 @@ describe('Routing', () => {
         .expect(302)
         .expect('Location', 'https://accounts.spotify.com/authorize?response_type=code&client_id=8681a5901c0f4e929658533e0db138c4&scope=user-read-private%20user-read-email%20user-top-read%20user-read-birthdate&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauthorised')
     });
-    it('/refresh GET requests refresh the apps access token without exposing the token to the front end', () => {
-      return request
-        .get('/api/refresh')
-        .expect(204)
-    });
     it('user/profile GET requests return the logged in users profile.', () => {
       return request
-        .get('/api/user/profile')
+        .get('/api/user/profile/pkcopley@gmail.com')
         .expect(200)
         .then(res => {
           expect(res.body.AgeRange).to.be.a('array')
@@ -36,7 +31,7 @@ describe('Routing', () => {
     })
     it('user/profile PATCH requests update a users data in the users collection', () => {
       return request
-      .patch('/api/user/profile')
+      .patch('/api/user/profile/pkcopley@gmail.com')
       .send({ Email: 'pkcopley@gmail.com', AgeRange: [{min: 22, max: 35}], Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', Bio: 'for i am Paul!' })
       .expect(200)
       .then(res => {
@@ -45,7 +40,7 @@ describe('Routing', () => {
     })
     it('/user/matches GET requests returns an ordered array of the matches for the logged in user', () => {
       return request
-        .get('/api/user/matches')
+        .get('/api/user/matches/pkcopley@gmail.com')
         .expect(200)
         .then(res => {
           expect(res.body).to.be.an('array')
@@ -53,12 +48,9 @@ describe('Routing', () => {
     });
     it('/user/matches PATCH requests add a user to the logged in users rejection array.', () => {
       return request
-        .patch('/api/user/profile')
-        .send({email: 'marge.baird@hotmail.com', choice: 'rejected'})
-        .expect(200)
-        .then(res => {
-          expect(res.body.rejected).to.be.an('array')
-        })
+        .patch('/api/user/matches/pkcopley@gmail.com')
+        .send({email: 'marge.baird@hotmail.com', choice: 'rejection'})
+        .expect(204)
     });
   })
 });

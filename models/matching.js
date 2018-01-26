@@ -6,10 +6,8 @@ const {getEmail} = require('./spotify');
 
 
 function getEligible (email) { 
-	console.log(email)
 	return User.findOne({Email: email})
 		.then(user => {
-			console.log(user)
 			let current = user;
 			let currentAgeRange = current.AgeRange;
 			return Promise.all([User.find({$and: [{Age : {$gte: currentAgeRange[0].min}},{Age : {$lte: currentAgeRange[0].max}}]}),	current])   
@@ -20,7 +18,9 @@ function getEligible (email) {
 					current.Email === person.Email ||
 					current.Age < person.AgeRange[0] || current.Age > person.AgeRange[1] ||
 					!current.GenderPreference.includes(person.Gender) ||
-					!person.GenderPreference.includes(current.Gender)
+					!person.GenderPreference.includes(current.Gender) ||
+					current.Rejected.includes(person.Email) ||
+					person.Rejected.includes(current.Email)
 				) return false;
 				return true;
 			}).map(person => person.Email);
@@ -47,9 +47,14 @@ function ratePeople (req, emails) {
 		});
 }
 
-function addRejection (currentEmail, rejectedEmail) {
-		return User.findOneAndUpdate({Email: { $eq: currentEmail }}, {$addToSet: {Rejected: rejectedEmail}}, {returnNewDocument: true} )
-		.then(() => true);
+function addChoice (currentEmail, personEmail, choice) {
+	if (choice === 'rejection') {
+		return User.findOneAndUpdate({Email: { $eq: currentEmail }}, {$addToSet: {Rejected: personEmail}}, {returnNewDocument: true} )
+		.then(user => user);
+	} else {
+		return User.findOneAndUpdate({Email: { $eq: currentEmail }}, {$addToSet: {Matched: personEmail}}, {returnNewDocument: true} )
+		.then(user => user);
+	}
 }
 
 
@@ -76,4 +81,4 @@ function comparePeople (person, current) {
 	return user;
 }
 
-module.exports = {getEligible, ratePeople, addRejection};
+module.exports = {getEligible, ratePeople, addChoice};

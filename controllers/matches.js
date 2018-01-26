@@ -1,4 +1,4 @@
-const {getEligible, ratePeople, addRejection} = require('../models/matching');
+const {getEligible, ratePeople, addChoice} = require('../models/matching');
 const {getEmail} = require('../models/spotify');
 const {User} = require('../database/models');
 const mongoose = require('mongoose');
@@ -18,7 +18,7 @@ function getMatches (req, res) {
 
 function updateRejections (req, res, next) {
 	const currentEmail = getEmail(req)
-		return addRejection(currentEmail, req.body.rejectedEmail)
+		return addChoice(currentEmail, req.body.email, req.body.choice)
 		.then(() => res.status(204).send())
 		.catch(console.log)
 }
