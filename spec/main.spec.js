@@ -48,12 +48,9 @@ describe('Routing', () => {
     });
     it('/user/matches PATCH requests add a user to the logged in users rejection array.', () => {
       return request
-        .patch('/api/user/profile/pkcopley@gmail.com')
-        .send({email: 'marge.baird@hotmail.com', choice: 'rejected'})
-        .expect(200)
-        .then(res => {
-          expect(res.body.rejected).to.be.an('array')
-        })
+        .patch('/api/user/matches/pkcopley@gmail.com')
+        .send({email: 'marge.baird@hotmail.com', choice: 'rejection'})
+        .expect(204)
     });
   })
 });
