@@ -1,4 +1,4 @@
-const { fetchUserProfile, patchProfilePic } = require('../models/user');
+const { fetchUserProfile, patchProfilePic, patchBio, patchPrefs } = require('../models/user');
 const { saveFormData } = require('../models/addToDB');
 let {getEmail} = require('../models/spotify');
 
@@ -19,10 +19,23 @@ function updateUserProfile(req, res, next) {
 function updatePicture(req, res, next) {
 	const email = getEmail(req);
 	const url = req.body.url;
-	console.log(req.body)
 		return patchProfilePic(email, url)
 			.then(profile => res.send(profile));
 }
 
-module.exports = { sendUserProfile, updateUserProfile, updatePicture };
+function updateBio(req, res, next) {
+	const email = getEmail(req);
+	const bio = req.body.bio;
+		return patchBio(email, bio) 
+			.then(profile => res.send(profile));
+}
+
+function updatePrefs(req, res, next) {
+	const email = getEmail(req);
+	const {genderPrefs, location} = req.body;
+		return patchPrefs(email, genderPrefs, location)
+			.then(profile => res.send(profile));
+}
+
+module.exports = { sendUserProfile, updateUserProfile, updatePicture, updateBio, updatePrefs };
 
