@@ -116,7 +116,6 @@ function getTopArtistsAndTracks(tokens, res) {
 }
 
 function fetchSpotifyProfile(tokens) {
-
 	const profileOptions = {
 		url: 'https://api.spotify.com/v1/me/',
 		json: true,
@@ -127,8 +126,6 @@ function fetchSpotifyProfile(tokens) {
 
 	return new Promise ((resolve, reject) => {
 		request.get(profileOptions, function(error, response, body) {
-
-
 			if (error) {
 				reject(error);
 			} else {

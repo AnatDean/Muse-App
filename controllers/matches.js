@@ -1,9 +1,6 @@
 const {getEligible, ratePeople, addChoice} = require('../models/matching');
+const {getNewMatches} = require('../models/user');
 const {getEmail} = require('../models/spotify');
-const {User} = require('../database/models');
-const mongoose = require('mongoose');
-const db = require('../config').DB.test;
-
 
 function getMatches (req, res) {
 	const email = getEmail(req)
@@ -23,4 +20,10 @@ function updateRejections (req, res, next) {
 		.catch(console.log)
 }
 
-module.exports = {getMatches, updateRejections};
+function sendNewMatches (req, res, next) {
+	const currentEmail = getEmail(req)
+	return getNewMatches(currentEmail)
+		.then(matches => res.send(matches))
+}
+
+module.exports = {getMatches, updateRejections, sendNewMatches};
