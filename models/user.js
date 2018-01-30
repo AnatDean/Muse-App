@@ -9,5 +9,14 @@ function fetchUserProfile (userEmail) {
 		});
 }
 
+function getNewMatches(userEmail) {
+	return User.find({ Matched: {$in: [userEmail]}})
+		.then(matches => console.log(matches))
+}
 
-module.exports = {fetchUserProfile};
+function patchProfilePic(userEmail, url) {
+	return User.findOneAndUpdate({Email: userEmail}, {$set: {picture: url}}, {new: true})
+		.then(profile => profile)
+}
+
+module.exports = {fetchUserProfile, getNewMatches, patchProfilePic};
