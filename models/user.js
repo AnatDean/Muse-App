@@ -14,9 +14,14 @@ function getNewMatches(userEmail) {
 		.then(matches => console.log(matches))
 }
 
-function patchProfilePic(userEmail, url) {
-	return User.findOneAndUpdate({Email: userEmail}, {$set: {picture: url}}, {new: true})
+function patchProfilePic(userEmail, incUrl) {
+	return User.findOneAndUpdate({Email: userEmail}, {$set: {picture: incUrl}}, {new: true})
 		.then(profile => profile)
 }
 
-module.exports = {fetchUserProfile, getNewMatches, patchProfilePic};
+function patchBio(userEmail, incBio) {
+	return User.findOneAndUpdate({Email: userEmail}, {$set: {Bio: incBio}}, {new: true})
+		.then(profile => profile)
+}
+
+module.exports = {fetchUserProfile, getNewMatches, patchProfilePic, patchBio};
