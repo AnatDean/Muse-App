@@ -1,7 +1,7 @@
 const express = require('express');
 
 const {sendUserProfile, updateUserProfile, updatePicture, updateBio, updatePrefs} = require('../controllers/user');
-const {getMatches, updateRejections, sendNewMatches} = require('../controllers/matches');
+const {getMatches, updateRejections, sendNewMatches, sendIncomingMatches} = require('../controllers/matches');
 
 const userRouter = express.Router();
 
@@ -24,5 +24,8 @@ userRouter.route('/matches/:email')
 
 userRouter.route('/newMatches/:email')
 	.get(sendNewMatches);
+
+userRouter.route('/incoming/:email')
+	.get(sendIncomingMatches);
 
 module.exports = {userRouter};

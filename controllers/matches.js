@@ -1,4 +1,4 @@
-const {getEligible, ratePeople, addChoice} = require('../models/matching');
+const {getEligible, ratePeople, addChoice, getIncomingMatches} = require('../models/matching');
 const {getNewMatches} = require('../models/user');
 const {getEmail} = require('../models/spotify');
 
@@ -23,7 +23,13 @@ function updateRejections (req, res, next) {
 function sendNewMatches (req, res, next) {
 	const currentEmail = getEmail(req)
 	return getNewMatches(currentEmail)
-		.then(matches => res.send(matches))
+		.then(matches => res.send(matches));
 }
 
-module.exports = {getMatches, updateRejections, sendNewMatches};
+function sendIncomingMatches(req, res, next) {
+	const currentEmail = getEmail(req);
+	return getIncomingMatches(currentEmail)
+		.then(response => res.send(response));
+}
+
+module.exports = {getMatches, updateRejections, sendNewMatches, sendIncomingMatches};
