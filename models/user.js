@@ -16,12 +16,17 @@ function getNewMatches(userEmail) {
 
 function patchProfilePic(userEmail, incUrl) {
 	return User.findOneAndUpdate({Email: userEmail}, {$set: {picture: incUrl}}, {new: true})
-		.then(profile => profile)
+		.then(profile => profile);
 }
 
 function patchBio(userEmail, incBio) {
 	return User.findOneAndUpdate({Email: userEmail}, {$set: {Bio: incBio}}, {new: true})
-		.then(profile => profile)
+		.then(profile => profile);
 }
 
-module.exports = {fetchUserProfile, getNewMatches, patchProfilePic, patchBio};
+function patchPrefs(userEmail, genderPrefs, location) {
+	return User.findOneAndUpdate({Email: userEmail}, {$set: {GenderPreference: genderPrefs, Area: location}}, {new: true})
+		.then(profile => profile);
+}
+
+module.exports = {fetchUserProfile, getNewMatches, patchProfilePic, patchBio, patchPrefs};
