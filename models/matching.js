@@ -3,6 +3,7 @@ mongoose.Promise = Promise;
 const DB = require('../config').DB.test;
 const {User, Spotify} = require('../database/models');
 const {getEmail} = require('./spotify');
+const intersection = require('lodash/intersection');
 
 
 function getEligible (email) { 
@@ -97,7 +98,23 @@ function comparePeople (person, current) {
 
 			return userProfile;
 		})
-
 }
 
-module.exports = {getEligible, ratePeople, addChoice};
+function getIncomingMatches(currentEmail) {
+	return User.findOne({Email: currentEmail}, {Matched: true})
+		.then(profile => {
+			return profile.Matched;
+		})
+		.then(liked => {
+			return Promise.all([User.find({Matched: {$in: [currentEmail]}}), liked]);
+		})
+		.then(([likedYou, liked]) => {
+			const likedYouEmails = likedYou.map(user => user.Email);
+			const mutual = intersection(likedYouEmails, liked);
+			likedYou = likedYou.filter(user => !mutual.includes(user.Email));
+			liked = liked.filter(user => !mutual.includes(user));
+			return Promise.all([User.find({})])
+		})
+}
+
+module.exports = {getEligible, ratePeople, addChoice, getIncomingMatches};
