@@ -62,7 +62,7 @@ function addChoice (currentEmail, personEmail, choice) {
 
 
 function comparePeople (person, current) {
-	// console.log('got here its fine', person, current)
+	console.log('got here its fine', person, '******',  current)
 	return User.findOne({Email: person.Email}).lean()
 		.then(userProfile => {
 			
