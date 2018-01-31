@@ -116,8 +116,8 @@ function getIncomingMatches(currentEmail) {
 		.then(([likedYou, mutual]) => {
 			let mutualEmails = [];
 			let likedYouEmails = [];
-			likedYou[0] ? likedYouEmails = likedYou[0].map(user => user.Email) : null;
-			mutual[0] ? mutualEmails = mutual[0].map(user => user.Email) : null;
+			likedYou[0] ? likedYouEmails = likedYou.map(user => user[0].Email) : null;
+			mutual[0] ? mutualEmails = mutual.map(user => user[0].Email) : null;
 			return Promise.all([
 				ratePeople(currentEmail, likedYouEmails),
 				ratePeople(currentEmail, mutualEmails)

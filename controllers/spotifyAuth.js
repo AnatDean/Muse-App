@@ -9,7 +9,6 @@ function authorise(req, res, next) {
 }
 
 function sendProfileData(req, res, next) {
-	console.log('hii')
 	storeToken(req, res, next)
 		.then(tokens => getTopArtistsAndTracks(tokens, res))
 		.then(([tokens, data]) => Promise.all([data, fetchSpotifyProfile(tokens)]))
