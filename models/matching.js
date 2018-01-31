@@ -64,7 +64,7 @@ function addChoice (currentEmail, personEmail, choice) {
 function comparePeople (person, current) {
 	return User.findOne({Email: person.Email}).lean()
 		.then(userProfile => {
-			
+			let currentTrackNames = current.tracks.map(track=> track.Name)
 			userProfile.rating = 0;
 			userProfile.matchingOn = {
 				tracks: [],
@@ -72,12 +72,12 @@ function comparePeople (person, current) {
 				genres: []
 			};
 			person.tracks.forEach((track) => {
-				if (current.tracks.includes(track)) {
+				if (currentTrackNames.includes(track.Name)) {
 					userProfile.rating += 10;
 					userProfile.matchingOn.tracks.push(track);
 				} 
 			});
-		
+			
 			let currentArtists = current.artists.map(artist => artist[0]);
 			person.artists.forEach((artist) => {
 				if (currentArtists.includes(artist[0])) {
@@ -85,14 +85,13 @@ function comparePeople (person, current) {
 					userProfile.matchingOn.artists.push(artist[0]);
 				}
 			});
-		
+			
 			for (let key in current.genres) {
 				if (person.genres.hasOwnProperty(key)) {
-						userProfile.rating += person.genres[key] * 2;
-						userProfile.matchingOn.genres.push(key);
-					}
+					userProfile.rating += person.genres[key] * 2;
+					userProfile.matchingOn.genres.push(key);
 				}
-
+			}			
 			return userProfile;
 		})
 }
@@ -124,6 +123,8 @@ function getIncomingMatches(currentEmail) {
 				ratePeople(currentEmail, mutualEmails)
 			])
 		.then(([likedYouSharedSongs, mutualSharedSongs]) => {
+
+			console.log(likedYouSharedSongs, 'kd;eioehgo;i', mutualSharedSongs)
 			return [likedYouSharedSongs, mutualSharedSongs];
 		})
 	});
