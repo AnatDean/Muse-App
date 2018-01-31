@@ -1,6 +1,6 @@
 
 const formatTrack = (topTracks) => {
-	return topTracks.map(song => song.name);
+	return topTracks.map(song => song = {'trackName': song.name, 'songUri': song.uri});
 };
 
 

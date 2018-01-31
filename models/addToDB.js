@@ -34,7 +34,7 @@ const saveFormData = (formData) => {
 
 
 const updateSpotifyData = (spotifyData) => {
-   return  models.Spotify.findOneAndUpdate({ Email: { $eq: spotifyData.Email }}, {$set: {tracks: spotifyData.tracks, artists: spotifyData.artists, genres: spotifyData.genres}})
+   return  models.Spotify.findOneAndUpdate({ Email: { $eq: spotifyData.Email }}, {$set: {tracks: spotifyData.tracks, artists: spotifyData.artists, genres: spotifyData.genres}}, {new:true})
 	.then(user => {
 		console.log('existing user')
 		return user;
