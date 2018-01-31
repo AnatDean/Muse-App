@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
 const DB = require('../config').DB;
-const db = process.env.NODE_ENV || 'development';
-const url = DB[db]
 const {formInput, spotifyResults} = require('../user-data');
 const models = require('../database/models');
+const async = require('async')
 
-	mongoose.connect(url, function (err) {
+	mongoose.connect(DB.test, function (err) {
 		if (!err) {
-			// console.log(`connected to ${url}`)
 			console.log('seeding...');
 			mongoose.connection.db.dropDatabase();
 			addUsers();
