@@ -62,21 +62,24 @@ function addChoice (currentEmail, personEmail, choice) {
 
 
 function comparePeople (person, current) {
+	// console.log(person, '*************', current);
 	return User.findOne({Email: person.Email}).lean()
 		.then(userProfile => {
-			let currentTrackNames = current.tracks.map(track=> track.Name)
+			let currentTrackNames = current.tracks.map(track=> track.trackName)
 			userProfile.rating = 0;
 			userProfile.matchingOn = {
 				tracks: [],
 				artists: [],
 				genres: []
 			};
+			// console.log(currentTrackNames)
 			person.tracks.forEach((track) => {
-				if (currentTrackNames.includes(track.Name)) {
+				if (currentTrackNames.includes(track.trackName)) {
 					userProfile.rating += 10;
 					userProfile.matchingOn.tracks.push(track);
 				} 
 			});
+			console.log(userProfile.tracks)
 			
 			let currentArtists = current.artists.map(artist => artist[0]);
 			person.artists.forEach((artist) => {
@@ -124,7 +127,7 @@ function getIncomingMatches(currentEmail) {
 			])
 		.then(([likedYouSharedSongs, mutualSharedSongs]) => {
 
-			console.log(likedYouSharedSongs, 'kd;eioehgo;i', mutualSharedSongs)
+			console.log(likedYouSharedSongs[0].matchingOn.tracks, 'kd;eioehgo;i', mutualSharedSongs)
 			return [likedYouSharedSongs, mutualSharedSongs];
 		})
 	});
