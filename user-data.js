@@ -9,7 +9,7 @@ const formInput = [
 	{ Name: 'Jeremy Corbyn', Age: 30, AgeRange: { min: 21, max: 40 }, Email: 'communistmanifesto@live.co.uk', Gender: 'Male', GenderPreference: ['Female'], Area: 'London', picture: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Official_portrait_of_Jeremy_Corbyn_crop_2.jpg', Bio: 'Keep the red flag flying, yo.' },
 	{ Matched: ['pkcopley@gmail.com'], Name: 'Theresa May', Age: 28, AgeRange: { min: 22, max: 32 }, Email: 'bedroom_tax_2017@conservatives.co.uk', Gender: 'Female', GenderPreference: ['Male'], Area: 'Manchester', picture: 'https://img.maximummedia.ie/joe_co_uk/eyJkYXRhIjoie1widXJsXCI6XCJodHRwOlxcXC9cXFwvbWVkaWEtam9lY291ay5tYXhpbXVtbWVkaWEuaWUuczMuYW1hem9uYXdzLmNvbVxcXC93cC1jb250ZW50XFxcL3VwbG9hZHNcXFwvMjAxNlxcXC8xMlxcXC8xNTE1MTMzNFxcXC9HZXR0eUltYWdlcy00NjQ3MjcyOTgtMTAyNHg2ODMuanBnXCIsXCJ3aWR0aFwiOjY0NyxcImhlaWdodFwiOjM0MCxcImRlZmF1bHRcIjpcImh0dHBzOlxcXC9cXFwvd3d3LmpvZS5jby51a1xcXC9hc3NldHNcXFwvaW1hZ2VzXFxcL2pvZWNvdWtcXFwvbm8taW1hZ2UucG5nP3Y9NFwifSIsImhhc2giOiJmYjdjODNiMmU4N2JmNjI5Njg0ZDhiMTdjY2Y2NDljNDY5MjExOGMzIn0=/gettyimages-464727298-1024x683.jpg', Bio: 'Desperately clinging onto power / your love, honey.' },
 	{ Name: 'Luke Fenn', Age: 22, AgeRange: { min: 18, max: 27 }, Email: 'LKBOI@hotmail.com', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am Luke' },
-	{ Name: 'Jade Ryan', Age: 28, AgeRange: { min: 28, max: 37 }, Email: 'gatsby123@hotmail.com', Gender: 'Female', GenderPreference: ['Male'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am Jade' },
+	{ Matched: ['dj_sam_lea@hotmai.com'], Name: 'Jade Ryan', Age: 28, AgeRange: { min: 28, max: 37 }, Email: 'gatsby123@hotmail.com', Gender: 'Female', GenderPreference: ['Male'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am Jade' },
 	{ Name: 'Will Leaf', Age: 35, AgeRange: { min: 23, max: 27 }, Email: 'wileaf@hotmail.com', Gender: 'Male', GenderPreference: ['Male'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am Will' },
 	{ Name: 'Amy queue', Age: 27, AgeRange: { min: 32, max: 38 }, Email: 'amy_Q@hotmail.com', Gender: 'Female', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am Amy' },
 	{ Name: 'Marge Baird', Age: 23, AgeRange: { min: 22, max: 29 }, Email: 'marge.baird@hotmail.com', Gender: 'Female', GenderPreference: ['Male', 'Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am marge' },
@@ -693,7 +693,19 @@ const spotifyResults = [
 			'pop rap': 1,
 			'pop rock': 1,
 			'post-teen pop': 1,
-			'post-screamo': 1
+			'post-screamo': 1,
+			'classic funk rock': 2,
+			'deep indie r&b': 2,
+			'escape room': 4,
+			'indie r&b': 2,
+			'uk garage': 1,
+			'rap': 8,
+			'trap music': 5,
+			'alternative hip hop': 8,
+			'dirty south rap': 1,
+			'east coast hip hop': 2,
+			'gangster rap': 1,
+			'dream pop': 1
 		}
 	},
 	{
@@ -1749,7 +1761,8 @@ const spotifyResults = [
 			'pop christmas': 1,
 			'abstract beats': 1,
 			'trap latino': 5,
-			'vapor twitch': 1
+			'vapor twitch': 1,
+			'punk': 2
 		}
 	},
 	{
@@ -2135,6 +2148,7 @@ const spotifyResults = [
 			'country': 1,
 			'country road': 1,
 			'modern country rock': 1,
+			'indietronica': 5,
 		}
 	},
 	{

@@ -73,14 +73,13 @@ function comparePeople (person, current) {
 				artists: [],
 				genres: []
 			};
-			// console.log(currentTrackNames)
+
 			person.tracks.forEach((track) => {
 				if (currentTrackNames.includes(track.trackName)) {
 					userProfile.rating += 10;
 					userProfile.matchingOn.tracks.push(track);
 				} 
 			});
-			console.log(userProfile.tracks)
 			
 			let currentArtists = current.artists.map(artist => artist[0]);
 			person.artists.forEach((artist) => {
@@ -90,14 +89,15 @@ function comparePeople (person, current) {
 				}
 			});
 			
-			for (let key in current.genres) {
+			for (let key in current.genres[0]) {
 				if (person.genres.hasOwnProperty(key)) {
 					userProfile.rating += person.genres[key] * 2;
 					userProfile.matchingOn.genres.push(key);
 				}
-			}			
+			}		
+				
 			return userProfile;
-		})
+		});
 }
 
 function getIncomingMatches(currentEmail) {
@@ -127,6 +127,7 @@ function getIncomingMatches(currentEmail) {
 				ratePeople(currentEmail, mutualEmails)
 			])
 		.then(([likedYouSharedSongs, mutualSharedSongs]) => {
+
 			return [likedYouSharedSongs, mutualSharedSongs];
 		})
 	});
