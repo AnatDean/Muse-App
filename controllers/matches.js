@@ -23,7 +23,9 @@ function updateRejections (req, res, next) {
 function sendNewMatches (req, res, next) {
 	const currentEmail = getEmail(req)
 	return getNewMatches(currentEmail)
-		.then(matches => res.send(matches));
+		.then(matches => {
+			res.send(matches)
+		});
 }
 
 function sendIncomingMatches(req, res, next) {

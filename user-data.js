@@ -2,7 +2,7 @@ const { formatTrack, formatArtists, formatGenres } = require('./models/formattin
 const formInput = [
 	{ Name: 'Paul Copley', Age: 31, AgeRange: { min: 25, max: 35 }, Email: 'pkcopley@gmail.com', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://ihbgrfhg', Bio: 'I am Paul' },
 	{ Name: 'Megan Field', Age: 25, AgeRange: { min: 26, max: 35 }, Email: 'megan.field@hotmail.co.uk', Gender: 'Female', GenderPreference: ['Male', 'Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am Megan' },
-	{ Name: 'Anat Dean', Matched:['xoxchazbase@hotmail.co.uk', 'damnPeasants@gmail.com'], Age: 21, AgeRange: { min: 21, max: 27 }, Email: 'anat62442@hotmail.co.uk', Gender: 'Female', GenderPreference: ['Male'], Area: 'Manchester', picture: 'https://ipojearhg', Bio: 'I am Anat' },
+	{ Name: 'Anat Dean', Matched: ['xoxchazbase@hotmail.co.uk', 'damnPeasants@gmail.com'], Age: 21, AgeRange: { min: 21, max: 27 }, Email: 'anat62442@hotmail.co.uk', Gender: 'Female', GenderPreference: ['Male'], Area: 'Manchester', picture: 'https://ipojearhg', Bio: 'I am Anat' },
 	{ Name: 'Sam Lea', Age: 28, AgeRange: { min: 26, max: 35 }, Email: 'dj_sam_lea@hotmai.com', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am Sam' },
 	{ Name: 'Peter Parker', Age: 20, AgeRange: { min: 18, max: 29 }, Email: 'notspiderman@hotmail.com', Gender: 'Male', GenderPreference: ['Male'], Area: 'New York', picture: 'https://pbs.twimg.com/profile_images/554513294053351425/uFuyrhO2.jpeg', Bio: 'I love shooting translucent stringy fluid from my wrists' },
 	{ Name: 'Antonia Blair', Age: 25, AgeRange: { min: 20, max: 34 }, Email: 'iraqioil2003@gmail.com', Gender: 'Female', GenderPreference: ['Female'], Area: 'London', picture: 'http://i.dailymail.co.uk/i/pix/2016/01/03/15/2DBE503300000578-0-image-a-55_1451833248581.jpg', Bio: 'Looking to meet some hot third-way babes' },
@@ -15,7 +15,7 @@ const formInput = [
 	{ Name: 'Marge Baird', Age: 23, AgeRange: { min: 22, max: 29 }, Email: 'marge.baird@hotmail.com', Gender: 'Female', GenderPreference: ['Male', 'Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am marge' },
 	{ Name: 'John Lawson', Age: 34, AgeRange: { min: 28, max: 38 }, Email: 'john.l@hotmail.co.uk', Gender: 'Male', GenderPreference: ['Male'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am john' },
 	{ Name: 'Joseph jackson', Age: 19, AgeRange: { min: 18, max: 23 }, Email: 'josephjkson@hotmail.com', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am joe' },
-	{ Name: 'Charlotte Base', Matched:['anat62442@hotmail.co.uk'], Age: 25, AgeRange: { min: 23, max: 30 }, Email: 'xoxchazbase@hotmail.co.uk', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am charlotte' },
+	{ Name: 'Charlotte Base', Matched: ['anat62442@hotmail.co.uk'], Age: 25, AgeRange: { min: 23, max: 30 }, Email: 'xoxchazbase@hotmail.co.uk', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am charlotte' },
 	{ Name: 'John Snow', Age: 24, AgeRange: { min: 20, max: 30 }, Email: 'winter@iscoming.com', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'http://tventhusiast.nintendoenthusiast.com/wp-content/uploads/sites/8/2017/08/promo323718229-1170x658.jpg', Bio: 'The north remembers!' },
 	{ Name: 'Jane Jeffries', Age: 21, AgeRange: { min: 20, max: 30 }, Email: 'jane@gmail.com', Gender: 'Female', GenderPreference: ['Male'], Area: 'Manchester', picture: 'https://assets1.cdn-mw.com/mw/images/article/art-wap-article-main/puppy-3143-7cfb4d6a42dfc7d9d1ae7e23126279e8@1x.jpg', Bio: 'A good northern lass.' },
 	{ Name: 'Sophie Andrews', Age: 19, AgeRange: { min: 18, max: 25 }, Email: 's.andrews@gmail.com', Gender: 'Female', GenderPreference: ['Male', 'Female'], Area: 'London', picture: 'http://i0.kym-cdn.com/entries/icons/mobile/000/011/365/GRUMPYCAT.jpg', Bio: 'Hey ho, let\'s go!' },
@@ -24,28 +24,90 @@ const formInput = [
 ];
 
 const spotifyResults = [
-	{Email: 'mitcheyMitch@gmail.com', 
-	tracks: [
-		'Money, Money, Money',
-		'Papaoutai',
-		'Cheap Thrills',
-		'Voulez-Vous',
-		'It\'s Just My Skin',
-		'Find Me',
-		'Broken Crown',
-		'Detroit',
-		'Toxic',
-		'Circus',
-		'You',
-		'Skinny Love',
-		'Towers',
-		'Orange Sky',
-		'We Turn Red',
-		'Leaving It Up to You',
-		'Dog Days Are Over',
-		'Applause',
-		'You\'ve Got Time',
-		'In Your Hands'], 
+	{
+		Email: 'mitcheyMitch@gmail.com',
+		"tracks": [
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+				"trackName": "Pink Moon",
+				"songUri": "spotify:track:1CbPLR6Xjo2nc0Pf13N0RS"
+			},
+			{
+				"trackName": "Cheap Thrills",
+				"songUri": "spotify:track:3S4px9f4lceWdKf0gWciFu"
+			},
+			{
+				"trackName": "Voulez-Vous",
+				"songUri": "spotify:track:4wZOmbYApgoF2zD9IHznDD"
+			},
+			{
+				"trackName": "It's Just My Skin",
+				"songUri": "spotify:track:0B0k37yUWHEB9MMJaBB3Eo"
+			},
+			{
+				"trackName": "Know",
+				"songUri": "spotify:track:1oqbUOYw2KuxuUUHdcwMbS"
+			},
+			{
+				"trackName": "Find Me",
+				"songUri": "spotify:track:2Wr970IfovsSGnfkE08iMF"
+			},
+			{
+				"trackName": "Above The Clouds Of Pompeii",
+				"songUri": "spotify:track:3cnkPRKvkItP5xGfnAPsAg"
+			},
+			{
+				"trackName": "Which Will",
+				"songUri": "spotify:track:4OQg4N07cIEI5OJ3L4hiA6"
+			},
+			{
+				"trackName": "Broken Crown",
+				"songUri": "spotify:track:5RI4Ecj8kvkH5W7q7mw4HU"
+			},
+			{
+				"trackName": "Detroit",
+				"songUri": "spotify:track:5y7IfSDhBHFVnlGj1UrlA1"
+			},
+			{
+				"trackName": "Toxic",
+				"songUri": "spotify:track:6I9VzXrHxO9rA9A5euc8Ak"
+			},
+			{
+				"trackName": "Circus",
+				"songUri": "spotify:track:7jk7gqyEonmVVYahZN5zhW"
+			},
+			{
+				"trackName": "You",
+				"songUri": "spotify:track:2s3IW4qMGuPBR2ka7jI66n"
+			},
+			{
+				"trackName": "Skinny Love",
+				"songUri": "spotify:track:1NyFRrFiJAJIaR6icj1goI"
+			},
+			{
+				"trackName": "Towers",
+				"songUri": "spotify:track:5mMV6EaKeZWkGFvE1xg13n"
+			},
+			{
+				"trackName": "Free Ride",
+				"songUri": "spotify:track:0OsiXfbG1wYhJYVutbfPpr"
+			},
+			{
+				"trackName": "Orange Sky",
+				"songUri": "spotify:track:0Y1fueUFu8jQtUxdUmOojf"
+			},
+			{
+				"trackName": "We Turn Red",
+				"songUri": "spotify:track:0cv2LgkvEoQiGgFWcZaAMA"
+			}
+		],
 		artists: [
 			[
 				'Red Hot Chili Peppers',
@@ -127,7 +189,7 @@ const spotifyResults = [
 				'Kesha',
 				83
 			]
-		], 
+		],
 		genres: {
 			'alternative metal': 1,
 			'alternative rock': 1,
