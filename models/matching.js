@@ -10,8 +10,9 @@ function getEligible (email) {
 	return User.findOne({Email: email})
 		.then(user => {
 			let current = user;
-			let currentAgeRange = current.AgeRange;
-			return Promise.all([User.find({$and: [{Age : {$gte: currentAgeRange[0].min}},{Age : {$lte: currentAgeRange[0].max}}]}),	current])   
+			let currentAgeRange = current.AgeRange[0];
+			console.log(currentAgeRange)
+			return Promise.all([User.find({$and: [{Age : {$gte: currentAgeRange.min}},{Age : {$lte: currentAgeRange.max}}]}),	current])   
 		})
 		.then(([eligibleAges, current]) => { 					      
 			return eligibleAges.filter(person => {
