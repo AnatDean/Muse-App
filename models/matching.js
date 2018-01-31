@@ -28,15 +28,15 @@ function getEligible (email) {
 		});  
 }
 
-function ratePeople (req, emails) {
+function ratePeople (currentUseremail, emails) {
+	// console.log(currentUseremail, emails, 'ieuhgelzhgoerihg' )
 	return Spotify.find()
 		.then(eligibleSpotifys => { 
 			let people = eligibleSpotifys.filter(person => {
 				if (emails.includes(person.Email)) return 1;
 				else return 0;
 			});
-			const currentEmail = getEmail(req);
-			return Promise.all([Spotify.findOne({Email: currentEmail}), people])
+			return Promise.all([Spotify.findOne({Email: currentUseremail}), people])
 		})
 		.then(([userObject, possibleMatches]) => {
 			return Promise.all(possibleMatches.map(
@@ -45,7 +45,6 @@ function ratePeople (req, emails) {
 				}));
 		})
 		.then(matches => {
-			console.log(matches)
 			return matches.sort((a,b) => {
 				return b.rating - a.rating;});
 		});
@@ -63,7 +62,7 @@ function addChoice (currentEmail, personEmail, choice) {
 
 
 function comparePeople (person, current) {
-
+	// console.log('got here its fine', person, current)
 	return User.findOne({Email: person.Email}).lean()
 		.then(userProfile => {
 			
@@ -73,7 +72,6 @@ function comparePeople (person, current) {
 				artists: [],
 				genres: []
 			};
-		
 			person.tracks.forEach((track) => {
 				if (current.tracks.includes(track)) {
 					userProfile.rating += 10;
@@ -112,26 +110,23 @@ function getIncomingMatches(currentEmail) {
 			const likedYouEmails = likedYou.map(user => user.Email);
 			const mutual = intersection(likedYouEmails, liked);
 			likedYou = likedYou.filter(user => !mutual.includes(user.Email));
-			liked = liked.filter(user => !mutual.includes(user));
 			return Promise.all([
-				Promise.all(liked.map(user => User.find({Email: user}))), 
 				Promise.all(likedYou.map(user => User.find({Email:user.Email}))),
 				Promise.all(mutual.map(user => User.find({Email: user})))
 				]);
 		})
-		.then(([liked, likedYou, mutual]) => {
-			// console.log(liked, likedYou, mutual)
-			return [liked, likedYou, mutual]
-		// 	return Promise.all([
-		// 		Promise.all(liked.map(user => Spotify.find({Email: user[0].Email}))),
-		// 		Promise.all(likedYou.map(user => Spotify.find({Email: user[0].Email}))),
-		// 		Promise.all(mutual.map(user => Spotify.find({Email: user[0].Email}))),
-		// 		Spotify.find({Email: currentEmail})
-		// 	])
-		// .then(([liked, likedYou, mutual, you]) => {
-		// 	console.log(liked, likedYou, mutual, '*******', you)
-		// 	return [liked, likedYou, mutual, you]
-		// });
+		.then(([likedYou, mutual]) => {
+			let mutualEmails = [];
+			let likedYouEmails = [];
+			likedYou[0] ? likedYouEmails = likedYou[0].map(user => user.Email) : null;
+			mutual[0] ? mutualEmails = mutual[0].map(user => user.Email) : null;
+			return Promise.all([
+				ratePeople(currentEmail, likedYouEmails),
+				ratePeople(currentEmail, mutualEmails)
+			])
+		.then(([likedYouSharedSongs, mutualSharedSongs]) => {
+			return [likedYouSharedSongs, mutualSharedSongs];
+		})
 	});
 }
 

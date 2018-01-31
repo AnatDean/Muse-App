@@ -6,7 +6,7 @@ function getMatches (req, res) {
 	const email = getEmail(req)
 			return getEligible(email)
 		.then(eligibles => {
-			return ratePeople(req, eligibles);
+			return ratePeople(email, eligibles);
 		})
 		.then(data => {
 			res.send(data);
@@ -29,8 +29,8 @@ function sendNewMatches (req, res, next) {
 function sendIncomingMatches(req, res, next) {
 	const currentEmail = getEmail(req);
 	return getIncomingMatches(currentEmail)
-		.then(([liked, likedYou, mutual]) => {
-			res.send({'liked': liked, 'likedYou': likedYou, 'mutual': mutual})
+		.then(([likedYou, mutual]) => {
+			res.send({'likedYou': likedYou, 'mutual': mutual})
 		})
 }
 
