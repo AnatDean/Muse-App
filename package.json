@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "node seed/seed.js && mocha spec/*.spec.js",
+    "test": "node seed/seed-test.js && mocha spec/*.spec.js",
     "start": "nodemon listen.js",
     "seed": "node seed/seed.js"
   },
