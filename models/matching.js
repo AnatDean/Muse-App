@@ -113,8 +113,26 @@ function getIncomingMatches(currentEmail) {
 			const mutual = intersection(likedYouEmails, liked);
 			likedYou = likedYou.filter(user => !mutual.includes(user.Email));
 			liked = liked.filter(user => !mutual.includes(user));
-			return Promise.all([User.find({})])
+			return Promise.all([
+				Promise.all(liked.map(user => User.find({Email: user}))), 
+				Promise.all(likedYou.map(user => User.find({Email:user.Email}))),
+				Promise.all(mutual.map(user => User.find({Email: user})))
+				]);
 		})
+		.then(([liked, likedYou, mutual]) => {
+			// console.log(liked, likedYou, mutual)
+			return [liked, likedYou, mutual]
+		// 	return Promise.all([
+		// 		Promise.all(liked.map(user => Spotify.find({Email: user[0].Email}))),
+		// 		Promise.all(likedYou.map(user => Spotify.find({Email: user[0].Email}))),
+		// 		Promise.all(mutual.map(user => Spotify.find({Email: user[0].Email}))),
+		// 		Spotify.find({Email: currentEmail})
+		// 	])
+		// .then(([liked, likedYou, mutual, you]) => {
+		// 	console.log(liked, likedYou, mutual, '*******', you)
+		// 	return [liked, likedYou, mutual, you]
+		// });
+	});
 }
 
 module.exports = {getEligible, ratePeople, addChoice, getIncomingMatches};
