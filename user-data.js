@@ -1,6 +1,6 @@
 const { formatTrack, formatArtists, formatGenres } = require('./models/formatting');
 const formInput = [
-	{ Name: 'Paul Copley', Age: 31, AgeRange: { min: 25, max: 35 }, Email: 'pkcopley@gmail.com', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://ihbgrfhg', Bio: 'I am Paul' },
+	// { Name: 'Paul Copley', Age: 31, AgeRange: { min: 25, max: 35 }, Email: 'pkcopley@gmail.com', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://ihbgrfhg', Bio: 'I am Paul' },
 	{ Name: 'Megan Field', Age: 25, AgeRange: { min: 26, max: 35 }, Email: 'megan.field@hotmail.co.uk', Gender: 'Female', GenderPreference: ['Male', 'Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am Megan' },
 	{ Name: 'Anat Dean', Matched: ['xoxchazbase@hotmail.co.uk', 'damnPeasants@gmail.com'], Age: 21, AgeRange: { min: 21, max: 27 }, Email: 'anat62442@hotmail.co.uk', Gender: 'Female', GenderPreference: ['Male'], Area: 'Manchester', picture: 'https://ipojearhg', Bio: 'I am Anat' },
 	{ Name: 'Sam Lea', Age: 28, AgeRange: { min: 26, max: 35 }, Email: 'dj_sam_lea@hotmai.com', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am Sam' },
@@ -454,248 +454,248 @@ const spotifyResults = [
 			'vocal house': 1
 		}
 	},
-	{
-		Email: 'pkcopley@gmail.com',
-		tracks: [
-			{
-							"trackName" : "Red Eyes",
-							"songUri" : "spotify:track:71jGGLe5VtEHjIk5dU2W3S"
-			},
-			{
-							"trackName" : "Just Another Girl",
-							"songUri" : "spotify:track:6y6KjfkOZMCbzwOPKKDwi0"
-			},
-			{
-							"trackName" : "10 Years Today",
-							"songUri" : "spotify:track:51hvz09iP6fsaKVFFBewm0"
-			},
-			{
-							"trackName" : "The Awakening",
-							"songUri" : "spotify:track:0X0wvZuhTcTU03Roz9fPJA"
-			},
-			{
-							"trackName" : "Fear Of The Dark - 1998 Remastered Version",
-							"songUri" : "spotify:track:0P4JuEXYJmu2Q7BTtQW5nR"
-			},
-			{
-							"trackName" : "Run For Cover",
-							"songUri" : "spotify:track:77wm0pMH1wLe2VnBcIEU2r"
-			},
-			{
-							"trackName" : "Find Me",
-							"songUri" : "spotify:track:2mwnYvlLVP465u9V9wjUGj"
-			},
-			{
-							"trackName" : "Bad Motherfucker",
-							"songUri" : "spotify:track:7MtcHoqyYMFue7J8pmXZ8a"
-			},
-			{
-							"trackName" : "Worlds Collide",
-							"songUri" : "spotify:track:09mI7zWburIky0YaG4K3Wc"
-			},
-			{
-							"trackName" : "Blood",
-							"songUri" : "spotify:track:104mgrd5IU1W33TeNyFcf8"
-			},
-			{
-							"trackName" : "Megalomaniac",
-							"songUri" : "spotify:track:143sZgySA70Q8lzZp8wxsG"
-			},
-			{
-							"trackName" : "Out Of Our Heads",
-							"songUri" : "spotify:track:1ziWp8dB8hGHaPmP6wVYd3"
-			},
-			{
-							"trackName" : "10 Years Today",
-							"songUri" : "spotify:track:4oOUU9JGGYU14GuA2EGtZu"
-			},
-			{
-							"trackName" : "Zwitter",
-							"songUri" : "spotify:track:6lAwdkFyupZ9RKTMhk0RHy"
-			},
-			{
-							"trackName" : "Fake Tales Of San Francisco",
-							"songUri" : "spotify:track:7BuzJmV2h6eBbSDdRaDY7C"
-			},
-			{
-							"trackName" : "Testify",
-							"songUri" : "spotify:track:7lmeHLHBe4nmXzuXc0HDjk"
-			},
-			{
-							"trackName" : "The Trooper - 1998 Remastered Version",
-							"songUri" : "spotify:track:2pxAohyJptQWTQ5ZRWYijN"
-			},
-			{
-							"trackName" : "Hand Of Blood",
-							"songUri" : "spotify:track:1EJzHoU6rg1afMozs9t6aM"
-			},
-			{
-							"trackName" : "Dragon Age Inquisition Theme",
-							"songUri" : "spotify:track:23HykWgKpB4MkjqDHPbQIX"
-			},
-			{
-							"trackName" : "Run to the Hills - 1998 Remastered Version",
-							"songUri" : "spotify:track:2JS1iE5A5RHvUPH5Zl9jlF"
-			}
-		],
-		artists: [
-			[
-				'Bullet For My Valentine',
-				72
-			],
-			[
-				'The Killers',
-				82
-			],
-			[
-				'Nightwish',
-				67
-			],
-			[
-				'36 Crazyfists',
-				50
-			],
-			[
-				'zebrahead',
-				54
-			],
-			[
-				'Iron Maiden',
-				76
-			],
-			[
-				'Kings of Leon',
-				79
-			],
-			[
-				'Sum 41',
-				73
-			],
-			[
-				'The War On Drugs',
-				70
-			],
-			[
-				'Jeremy Soule',
-				63
-			],
-			[
-				'Oasis',
-				81
-			],
-			[
-				'Aaron Lewis',
-				61
-			],
-			[
-				'Apocalyptica',
-				62
-			],
-			[
-				'First Aid Kit',
-				73
-			],
-			[
-				'Disturbed',
-				79
-			],
-			[
-				'Mindless Self Indulgence',
-				56
-			],
-			[
-				'White Lies',
-				61
-			],
-			[
-				'Rammstein',
-				77
-			],
-			[
-				'The All-American Rejects',
-				71
-			],
-			[
-				'Onlap',
-				50
-			]
-		],
-		genres: {
-			'alternative metal': 11,
-			'groove metal': 2,
-			'melodic metalcore': 2,
-			'metalcore': 2,
-			'nu metal': 8,
-			'pop punk': 4,
-			'post-grunge': 8,
-			'rap metal': 3,
-			'rap rock': 4,
-			'screamo': 1,
-			'alternative rock': 3,
-			'indie christmas': 1,
-			'indie pop': 3,
-			'indie rock': 5,
-			'modern rock': 8,
-			'permanent wave': 2,
-			'pop christmas': 1,
-			'rock': 4,
-			'vegas indie': 1,
-			'finnish metal': 1,
-			'gothic metal': 1,
-			'gothic symphonic metal': 1,
-			'power metal': 2,
-			'progressive metal': 2,
-			'symphonic metal': 1,
-			'industrial metal': 3,
-			'emo': 2,
-			'funk metal': 1,
-			'punk': 2,
-			'skate punk': 1,
-			'album rock': 1,
-			'classic rock': 1,
-			'hard rock': 1,
-			'metal': 2,
-			'nwobhm': 1,
-			'garage rock': 2,
-			'neo mellow': 2,
-			'chamber pop': 2,
-			'freak folk': 1,
-			'indie folk': 2,
-			'indietronica': 2,
-			'deep chiptune': 1,
-			'epicore': 1,
-			'scorecore': 1,
-			'soundtrack': 1,
-			'video game music': 1,
-			'britpop': 1,
-			'contemporary country': 1,
-			'country': 1,
-			'country road': 1,
-			'modern country rock': 1,
-			'outlaw country': 1,
-			'redneck': 1,
-			'bow pop': 1,
-			'cello': 1,
-			'classical christmas': 1,
-			'heavy christmas': 1,
-			'folk-pop': 1,
-			'stomp and holler': 1,
-			'comic': 1,
-			'industrial rock': 2,
-			'alternative dance': 1,
-			'dance-punk': 1,
-			'new rave': 1,
-			'synthpop': 1,
-			'german metal': 1,
-			'industrial': 1,
-			'neue deutsche harte': 1,
-			'pop': 1,
-			'pop rap': 1,
-			'pop rock': 1,
-			'post-teen pop': 1,
-			'post-screamo': 1
-		}
-	},
+	// {
+	// 	Email: 'pkcopley@gmail.com',
+	// 	tracks: [
+	// 		{
+	// 						"trackName" : "Red Eyes",
+	// 						"songUri" : "spotify:track:71jGGLe5VtEHjIk5dU2W3S"
+	// 		},
+	// 		{
+	// 						"trackName" : "Just Another Girl",
+	// 						"songUri" : "spotify:track:6y6KjfkOZMCbzwOPKKDwi0"
+	// 		},
+	// 		{
+	// 						"trackName" : "10 Years Today",
+	// 						"songUri" : "spotify:track:51hvz09iP6fsaKVFFBewm0"
+	// 		},
+	// 		{
+	// 						"trackName" : "The Awakening",
+	// 						"songUri" : "spotify:track:0X0wvZuhTcTU03Roz9fPJA"
+	// 		},
+	// 		{
+	// 						"trackName" : "Fear Of The Dark - 1998 Remastered Version",
+	// 						"songUri" : "spotify:track:0P4JuEXYJmu2Q7BTtQW5nR"
+	// 		},
+	// 		{
+	// 						"trackName" : "Run For Cover",
+	// 						"songUri" : "spotify:track:77wm0pMH1wLe2VnBcIEU2r"
+	// 		},
+	// 		{
+	// 						"trackName" : "Find Me",
+	// 						"songUri" : "spotify:track:2mwnYvlLVP465u9V9wjUGj"
+	// 		},
+	// 		{
+	// 						"trackName" : "Bad Motherfucker",
+	// 						"songUri" : "spotify:track:7MtcHoqyYMFue7J8pmXZ8a"
+	// 		},
+	// 		{
+	// 						"trackName" : "Worlds Collide",
+	// 						"songUri" : "spotify:track:09mI7zWburIky0YaG4K3Wc"
+	// 		},
+	// 		{
+	// 						"trackName" : "Blood",
+	// 						"songUri" : "spotify:track:104mgrd5IU1W33TeNyFcf8"
+	// 		},
+	// 		{
+	// 						"trackName" : "Megalomaniac",
+	// 						"songUri" : "spotify:track:143sZgySA70Q8lzZp8wxsG"
+	// 		},
+	// 		{
+	// 						"trackName" : "Out Of Our Heads",
+	// 						"songUri" : "spotify:track:1ziWp8dB8hGHaPmP6wVYd3"
+	// 		},
+	// 		{
+	// 						"trackName" : "10 Years Today",
+	// 						"songUri" : "spotify:track:4oOUU9JGGYU14GuA2EGtZu"
+	// 		},
+	// 		{
+	// 						"trackName" : "Zwitter",
+	// 						"songUri" : "spotify:track:6lAwdkFyupZ9RKTMhk0RHy"
+	// 		},
+	// 		{
+	// 						"trackName" : "Fake Tales Of San Francisco",
+	// 						"songUri" : "spotify:track:7BuzJmV2h6eBbSDdRaDY7C"
+	// 		},
+	// 		{
+	// 						"trackName" : "Testify",
+	// 						"songUri" : "spotify:track:7lmeHLHBe4nmXzuXc0HDjk"
+	// 		},
+	// 		{
+	// 						"trackName" : "The Trooper - 1998 Remastered Version",
+	// 						"songUri" : "spotify:track:2pxAohyJptQWTQ5ZRWYijN"
+	// 		},
+	// 		{
+	// 						"trackName" : "Hand Of Blood",
+	// 						"songUri" : "spotify:track:1EJzHoU6rg1afMozs9t6aM"
+	// 		},
+	// 		{
+	// 						"trackName" : "Dragon Age Inquisition Theme",
+	// 						"songUri" : "spotify:track:23HykWgKpB4MkjqDHPbQIX"
+	// 		},
+	// 		{
+	// 						"trackName" : "Run to the Hills - 1998 Remastered Version",
+	// 						"songUri" : "spotify:track:2JS1iE5A5RHvUPH5Zl9jlF"
+	// 		}
+	// 	],
+	// 	artists: [
+	// 		[
+	// 			'Bullet For My Valentine',
+	// 			72
+	// 		],
+	// 		[
+	// 			'The Killers',
+	// 			82
+	// 		],
+	// 		[
+	// 			'Nightwish',
+	// 			67
+	// 		],
+	// 		[
+	// 			'36 Crazyfists',
+	// 			50
+	// 		],
+	// 		[
+	// 			'zebrahead',
+	// 			54
+	// 		],
+	// 		[
+	// 			'Iron Maiden',
+	// 			76
+	// 		],
+	// 		[
+	// 			'Kings of Leon',
+	// 			79
+	// 		],
+	// 		[
+	// 			'Sum 41',
+	// 			73
+	// 		],
+	// 		[
+	// 			'The War On Drugs',
+	// 			70
+	// 		],
+	// 		[
+	// 			'Jeremy Soule',
+	// 			63
+	// 		],
+	// 		[
+	// 			'Oasis',
+	// 			81
+	// 		],
+	// 		[
+	// 			'Aaron Lewis',
+	// 			61
+	// 		],
+	// 		[
+	// 			'Apocalyptica',
+	// 			62
+	// 		],
+	// 		[
+	// 			'First Aid Kit',
+	// 			73
+	// 		],
+	// 		[
+	// 			'Disturbed',
+	// 			79
+	// 		],
+	// 		[
+	// 			'Mindless Self Indulgence',
+	// 			56
+	// 		],
+	// 		[
+	// 			'White Lies',
+	// 			61
+	// 		],
+	// 		[
+	// 			'Rammstein',
+	// 			77
+	// 		],
+	// 		[
+	// 			'The All-American Rejects',
+	// 			71
+	// 		],
+	// 		[
+	// 			'Onlap',
+	// 			50
+	// 		]
+	// 	],
+	// 	genres: {
+	// 		'alternative metal': 11,
+	// 		'groove metal': 2,
+	// 		'melodic metalcore': 2,
+	// 		'metalcore': 2,
+	// 		'nu metal': 8,
+	// 		'pop punk': 4,
+	// 		'post-grunge': 8,
+	// 		'rap metal': 3,
+	// 		'rap rock': 4,
+	// 		'screamo': 1,
+	// 		'alternative rock': 3,
+	// 		'indie christmas': 1,
+	// 		'indie pop': 3,
+	// 		'indie rock': 5,
+	// 		'modern rock': 8,
+	// 		'permanent wave': 2,
+	// 		'pop christmas': 1,
+	// 		'rock': 4,
+	// 		'vegas indie': 1,
+	// 		'finnish metal': 1,
+	// 		'gothic metal': 1,
+	// 		'gothic symphonic metal': 1,
+	// 		'power metal': 2,
+	// 		'progressive metal': 2,
+	// 		'symphonic metal': 1,
+	// 		'industrial metal': 3,
+	// 		'emo': 2,
+	// 		'funk metal': 1,
+	// 		'punk': 2,
+	// 		'skate punk': 1,
+	// 		'album rock': 1,
+	// 		'classic rock': 1,
+	// 		'hard rock': 1,
+	// 		'metal': 2,
+	// 		'nwobhm': 1,
+	// 		'garage rock': 2,
+	// 		'neo mellow': 2,
+	// 		'chamber pop': 2,
+	// 		'freak folk': 1,
+	// 		'indie folk': 2,
+	// 		'indietronica': 2,
+	// 		'deep chiptune': 1,
+	// 		'epicore': 1,
+	// 		'scorecore': 1,
+	// 		'soundtrack': 1,
+	// 		'video game music': 1,
+	// 		'britpop': 1,
+	// 		'contemporary country': 1,
+	// 		'country': 1,
+	// 		'country road': 1,
+	// 		'modern country rock': 1,
+	// 		'outlaw country': 1,
+	// 		'redneck': 1,
+	// 		'bow pop': 1,
+	// 		'cello': 1,
+	// 		'classical christmas': 1,
+	// 		'heavy christmas': 1,
+	// 		'folk-pop': 1,
+	// 		'stomp and holler': 1,
+	// 		'comic': 1,
+	// 		'industrial rock': 2,
+	// 		'alternative dance': 1,
+	// 		'dance-punk': 1,
+	// 		'new rave': 1,
+	// 		'synthpop': 1,
+	// 		'german metal': 1,
+	// 		'industrial': 1,
+	// 		'neue deutsche harte': 1,
+	// 		'pop': 1,
+	// 		'pop rap': 1,
+	// 		'pop rock': 1,
+	// 		'post-teen pop': 1,
+	// 		'post-screamo': 1
+	// 	}
+	// },
 	{
 		Email: 'anat62442@hotmail.co.uk',
 		tracks: [

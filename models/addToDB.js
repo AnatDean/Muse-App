@@ -25,7 +25,7 @@ const saveApiDataToDatabase = (spotifyData, userData) => {
 
 
 const saveFormData = (formData) => {
-    return models.User.findOneAndUpdate({ Email: { $eq: formData.Email } }, { $set: { AgeRange: formData.AgeRange, Gender: formData.Gender, GenderPreference: formData.GenderPreference, Area: formData.Area, Bio: formData.Bio } }, { new: true })
+    return models.User.findOneAndUpdate({ Email: { $eq: formData.Email } }, { $set: { AgeRange: formData.AgeRange, Gender: formData.Gender, GenderPreference: formData.GenderPref, Area: formData.Area, Bio: formData.Bio } }, { new: true })
 		.then(user => {
 			console.log()
 			return user;
