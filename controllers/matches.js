@@ -29,7 +29,9 @@ function sendNewMatches (req, res, next) {
 function sendIncomingMatches(req, res, next) {
 	const currentEmail = getEmail(req);
 	return getIncomingMatches(currentEmail)
-		.then(response => res.send(response));
+		.then(([liked, likedYou, mutual]) => {
+			res.send({'liked': liked, 'likedYou': likedYou, 'mutual': mutual})
+		})
 }
 
 module.exports = {getMatches, updateRejections, sendNewMatches, sendIncomingMatches};
