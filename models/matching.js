@@ -126,8 +126,6 @@ function getIncomingMatches(currentEmail) {
 				ratePeople(currentEmail, mutualEmails)
 			])
 		.then(([likedYouSharedSongs, mutualSharedSongs]) => {
-
-			console.log(likedYouSharedSongs[0].matchingOn.tracks, 'kd;eioehgo;i', mutualSharedSongs)
 			return [likedYouSharedSongs, mutualSharedSongs];
 		})
 	});
