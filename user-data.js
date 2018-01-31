@@ -2,7 +2,7 @@ const { formatTrack, formatArtists, formatGenres } = require('./models/formattin
 const formInput = [
 	{ Name: 'Paul Copley', Age: 31, AgeRange: { min: 25, max: 35 }, Email: 'pkcopley@gmail.com', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://ihbgrfhg', Bio: 'I am Paul' },
 	{ Name: 'Megan Field', Age: 25, AgeRange: { min: 26, max: 35 }, Email: 'megan.field@hotmail.co.uk', Gender: 'Female', GenderPreference: ['Male', 'Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am Megan' },
-	{ Name: 'Anat Dean', Matched:['xoxchazbase@hotmail.co.uk', 'damnPeasants@gmail.com'], Age: 21, AgeRange: { min: 21, max: 27 }, Email: 'anat62442@hotmail.co.uk', Gender: 'Female', GenderPreference: ['Male'], Area: 'Manchester', picture: 'https://ipojearhg', Bio: 'I am Anat' },
+	{ Name: 'Anat Dean', Matched: ['xoxchazbase@hotmail.co.uk', 'damnPeasants@gmail.com'], Age: 21, AgeRange: { min: 21, max: 27 }, Email: 'anat62442@hotmail.co.uk', Gender: 'Female', GenderPreference: ['Male'], Area: 'Manchester', picture: 'https://ipojearhg', Bio: 'I am Anat' },
 	{ Name: 'Sam Lea', Age: 28, AgeRange: { min: 26, max: 35 }, Email: 'dj_sam_lea@hotmai.com', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am Sam' },
 	{ Name: 'Peter Parker', Age: 20, AgeRange: { min: 18, max: 29 }, Email: 'notspiderman@hotmail.com', Gender: 'Male', GenderPreference: ['Male'], Area: 'New York', picture: 'https://pbs.twimg.com/profile_images/554513294053351425/uFuyrhO2.jpeg', Bio: 'I love shooting translucent stringy fluid from my wrists' },
 	{ Name: 'Antonia Blair', Age: 25, AgeRange: { min: 20, max: 34 }, Email: 'iraqioil2003@gmail.com', Gender: 'Female', GenderPreference: ['Female'], Area: 'London', picture: 'http://i.dailymail.co.uk/i/pix/2016/01/03/15/2DBE503300000578-0-image-a-55_1451833248581.jpg', Bio: 'Looking to meet some hot third-way babes' },
@@ -15,7 +15,7 @@ const formInput = [
 	{ Name: 'Marge Baird', Age: 23, AgeRange: { min: 22, max: 29 }, Email: 'marge.baird@hotmail.com', Gender: 'Female', GenderPreference: ['Male', 'Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am marge' },
 	{ Name: 'John Lawson', Age: 34, AgeRange: { min: 28, max: 38 }, Email: 'john.l@hotmail.co.uk', Gender: 'Male', GenderPreference: ['Male'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am john' },
 	{ Name: 'Joseph jackson', Age: 19, AgeRange: { min: 18, max: 23 }, Email: 'josephjkson@hotmail.com', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am joe' },
-	{ Name: 'Charlotte Base', Matched:['anat62442@hotmail.co.uk'], Age: 25, AgeRange: { min: 23, max: 30 }, Email: 'xoxchazbase@hotmail.co.uk', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am charlotte' },
+	{ Name: 'Charlotte Base', Matched: ['anat62442@hotmail.co.uk'], Age: 25, AgeRange: { min: 23, max: 30 }, Email: 'xoxchazbase@hotmail.co.uk', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'https://ihbgrffpojearhg', Bio: 'I am charlotte' },
 	{ Name: 'John Snow', Age: 24, AgeRange: { min: 20, max: 30 }, Email: 'winter@iscoming.com', Gender: 'Male', GenderPreference: ['Female'], Area: 'Manchester', picture: 'http://tventhusiast.nintendoenthusiast.com/wp-content/uploads/sites/8/2017/08/promo323718229-1170x658.jpg', Bio: 'The north remembers!' },
 	{ Name: 'Jane Jeffries', Age: 21, AgeRange: { min: 20, max: 30 }, Email: 'jane@gmail.com', Gender: 'Female', GenderPreference: ['Male'], Area: 'Manchester', picture: 'https://assets1.cdn-mw.com/mw/images/article/art-wap-article-main/puppy-3143-7cfb4d6a42dfc7d9d1ae7e23126279e8@1x.jpg', Bio: 'A good northern lass.' },
 	{ Name: 'Sophie Andrews', Age: 19, AgeRange: { min: 18, max: 25 }, Email: 's.andrews@gmail.com', Gender: 'Female', GenderPreference: ['Male', 'Female'], Area: 'London', picture: 'http://i0.kym-cdn.com/entries/icons/mobile/000/011/365/GRUMPYCAT.jpg', Bio: 'Hey ho, let\'s go!' },
@@ -24,28 +24,90 @@ const formInput = [
 ];
 
 const spotifyResults = [
-	{Email: 'mitcheyMitch@gmail.com', 
-	tracks: [
-		'Money, Money, Money',
-		'Papaoutai',
-		'Cheap Thrills',
-		'Voulez-Vous',
-		'It\'s Just My Skin',
-		'Find Me',
-		'Broken Crown',
-		'Detroit',
-		'Toxic',
-		'Circus',
-		'You',
-		'Skinny Love',
-		'Towers',
-		'Orange Sky',
-		'We Turn Red',
-		'Leaving It Up to You',
-		'Dog Days Are Over',
-		'Applause',
-		'You\'ve Got Time',
-		'In Your Hands'], 
+	{
+		Email: 'mitcheyMitch@gmail.com',
+		"tracks": [
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+				"trackName": "Pink Moon",
+				"songUri": "spotify:track:1CbPLR6Xjo2nc0Pf13N0RS"
+			},
+			{
+				"trackName": "Cheap Thrills",
+				"songUri": "spotify:track:3S4px9f4lceWdKf0gWciFu"
+			},
+			{
+				"trackName": "Voulez-Vous",
+				"songUri": "spotify:track:4wZOmbYApgoF2zD9IHznDD"
+			},
+			{
+				"trackName": "It's Just My Skin",
+				"songUri": "spotify:track:0B0k37yUWHEB9MMJaBB3Eo"
+			},
+			{
+				"trackName": "Know",
+				"songUri": "spotify:track:1oqbUOYw2KuxuUUHdcwMbS"
+			},
+			{
+				"trackName": "Find Me",
+				"songUri": "spotify:track:2Wr970IfovsSGnfkE08iMF"
+			},
+			{
+				"trackName": "Above The Clouds Of Pompeii",
+				"songUri": "spotify:track:3cnkPRKvkItP5xGfnAPsAg"
+			},
+			{
+				"trackName": "Which Will",
+				"songUri": "spotify:track:4OQg4N07cIEI5OJ3L4hiA6"
+			},
+			{
+				"trackName": "Broken Crown",
+				"songUri": "spotify:track:5RI4Ecj8kvkH5W7q7mw4HU"
+			},
+			{
+				"trackName": "Detroit",
+				"songUri": "spotify:track:5y7IfSDhBHFVnlGj1UrlA1"
+			},
+			{
+				"trackName": "Toxic",
+				"songUri": "spotify:track:6I9VzXrHxO9rA9A5euc8Ak"
+			},
+			{
+				"trackName": "Circus",
+				"songUri": "spotify:track:7jk7gqyEonmVVYahZN5zhW"
+			},
+			{
+				"trackName": "You",
+				"songUri": "spotify:track:2s3IW4qMGuPBR2ka7jI66n"
+			},
+			{
+				"trackName": "Skinny Love",
+				"songUri": "spotify:track:1NyFRrFiJAJIaR6icj1goI"
+			},
+			{
+				"trackName": "Towers",
+				"songUri": "spotify:track:5mMV6EaKeZWkGFvE1xg13n"
+			},
+			{
+				"trackName": "Free Ride",
+				"songUri": "spotify:track:0OsiXfbG1wYhJYVutbfPpr"
+			},
+			{
+				"trackName": "Orange Sky",
+				"songUri": "spotify:track:0Y1fueUFu8jQtUxdUmOojf"
+			},
+			{
+				"trackName": "We Turn Red",
+				"songUri": "spotify:track:0cv2LgkvEoQiGgFWcZaAMA"
+			}
+		],
 		artists: [
 			[
 				'Red Hot Chili Peppers',
@@ -127,7 +189,7 @@ const spotifyResults = [
 				'Kesha',
 				83
 			]
-		], 
+		],
 		genres: {
 			'alternative metal': 1,
 			'alternative rock': 1,
@@ -183,26 +245,30 @@ const spotifyResults = [
 	{
 		Email: 'dj_sam_lea@hotmail.com',
 		tracks: [
-			'All Falls Down - Todd Edwards Remix',
-			'Big Brown Eyes',
-			'All We Do For Love',
-			'Each Other',
-			'Can We Try',
-			'Night of the Long Knives',
-			'Realize',
-			'It\'s Just (House of Dupree)',
-			'Birds of a Feather, We Rock Together',
-			'Another New Day',
-			'Honey Bee',
-			'Dreams',
-			'Sully Suite',
-			'King Size',
-			'Cherokee',
-			'Rosalinda\'s Eyes',
-			'This Is a Samba',
-			'Boys',
-			'Downstream',
-			'Beez in the Trap - Instrumental Version'
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+				"trackName": "Pink Moon",
+				"songUri": "spotify:track:1CbPLR6Xjo2nc0Pf13N0RS"
+			},
+			{
+						"trackName" : "Red Eyes",
+						"songUri" : "spotify:track:71jGGLe5VtEHjIk5dU2W3S"
+			},
+			{
+						"trackName" : "Just Another Girl",
+						"songUri" : "spotify:track:6y6KjfkOZMCbzwOPKKDwi0"
+			},
+			{
+						"trackName" : "10 Years Today",
+						"songUri" : "spotify:track:51hvz09iP6fsaKVFFBewm0"
+			}
 		],
 		artists: [
 			[
@@ -391,26 +457,86 @@ const spotifyResults = [
 	{
 		Email: 'pkcopley@gmail.com',
 		tracks: [
-			'Red Eyes',
-			'Just Another Girl',
-			'The Awakening',
-			'10 Years Today',
-			'Fear Of The Dark - 1998 Remastered Version',
-			'Worlds Collide',
-			'Find Me',
-			'10 Years Today',
-			'Zwitter',
-			'Testify',
-			'The Trooper - 1998 Remastered Version',
-			'Run For Cover',
-			'Run to the Hills - 1998 Remastered Version',
-			'Cries In Vain',
-			'All These Things I Hate (Revolve Around Me)',
-			'That Ain’t Country',
-			'Anthem',
-			'Forever Yours',
-			'Country Boy (feat. George Jones & Charlie Daniels)',
-			'All These Things That I\'ve Done'
+			{
+							"trackName" : "Red Eyes",
+							"songUri" : "spotify:track:71jGGLe5VtEHjIk5dU2W3S"
+			},
+			{
+							"trackName" : "Just Another Girl",
+							"songUri" : "spotify:track:6y6KjfkOZMCbzwOPKKDwi0"
+			},
+			{
+							"trackName" : "10 Years Today",
+							"songUri" : "spotify:track:51hvz09iP6fsaKVFFBewm0"
+			},
+			{
+							"trackName" : "The Awakening",
+							"songUri" : "spotify:track:0X0wvZuhTcTU03Roz9fPJA"
+			},
+			{
+							"trackName" : "Fear Of The Dark - 1998 Remastered Version",
+							"songUri" : "spotify:track:0P4JuEXYJmu2Q7BTtQW5nR"
+			},
+			{
+							"trackName" : "Run For Cover",
+							"songUri" : "spotify:track:77wm0pMH1wLe2VnBcIEU2r"
+			},
+			{
+							"trackName" : "Find Me",
+							"songUri" : "spotify:track:2mwnYvlLVP465u9V9wjUGj"
+			},
+			{
+							"trackName" : "Bad Motherfucker",
+							"songUri" : "spotify:track:7MtcHoqyYMFue7J8pmXZ8a"
+			},
+			{
+							"trackName" : "Worlds Collide",
+							"songUri" : "spotify:track:09mI7zWburIky0YaG4K3Wc"
+			},
+			{
+							"trackName" : "Blood",
+							"songUri" : "spotify:track:104mgrd5IU1W33TeNyFcf8"
+			},
+			{
+							"trackName" : "Megalomaniac",
+							"songUri" : "spotify:track:143sZgySA70Q8lzZp8wxsG"
+			},
+			{
+							"trackName" : "Out Of Our Heads",
+							"songUri" : "spotify:track:1ziWp8dB8hGHaPmP6wVYd3"
+			},
+			{
+							"trackName" : "10 Years Today",
+							"songUri" : "spotify:track:4oOUU9JGGYU14GuA2EGtZu"
+			},
+			{
+							"trackName" : "Zwitter",
+							"songUri" : "spotify:track:6lAwdkFyupZ9RKTMhk0RHy"
+			},
+			{
+							"trackName" : "Fake Tales Of San Francisco",
+							"songUri" : "spotify:track:7BuzJmV2h6eBbSDdRaDY7C"
+			},
+			{
+							"trackName" : "Testify",
+							"songUri" : "spotify:track:7lmeHLHBe4nmXzuXc0HDjk"
+			},
+			{
+							"trackName" : "The Trooper - 1998 Remastered Version",
+							"songUri" : "spotify:track:2pxAohyJptQWTQ5ZRWYijN"
+			},
+			{
+							"trackName" : "Hand Of Blood",
+							"songUri" : "spotify:track:1EJzHoU6rg1afMozs9t6aM"
+			},
+			{
+							"trackName" : "Dragon Age Inquisition Theme",
+							"songUri" : "spotify:track:23HykWgKpB4MkjqDHPbQIX"
+			},
+			{
+							"trackName" : "Run to the Hills - 1998 Remastered Version",
+							"songUri" : "spotify:track:2JS1iE5A5RHvUPH5Zl9jlF"
+			}
 		],
 		artists: [
 			[
@@ -573,26 +699,87 @@ const spotifyResults = [
 	{
 		Email: 'anat62442@hotmail.co.uk',
 		tracks: [
-			'Money, Money, Money',
-			'Papaoutai',
-			'Cheap Thrills',
-			'Voulez-Vous',
-			'It\'s Just My Skin',
-			'Find Me',
-			'Broken Crown',
-			'Detroit',
-			'Toxic',
-			'Circus',
-			'You',
-			'Skinny Love',
-			'Towers',
-			'Orange Sky',
-			'We Turn Red',
-			'Leaving It Up to You',
-			'Dog Days Are Over',
-			'Applause',
-			'You\'ve Got Time',
-			'In Your Hands'],
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+				"trackName": "Pink Moon",
+				"songUri": "spotify:track:1CbPLR6Xjo2nc0Pf13N0RS"
+			},
+			{
+				"trackName": "Cheap Thrills",
+				"songUri": "spotify:track:3S4px9f4lceWdKf0gWciFu"
+			},
+			{
+				"trackName": "Voulez-Vous",
+				"songUri": "spotify:track:4wZOmbYApgoF2zD9IHznDD"
+			},
+			{
+				"trackName": "It's Just My Skin",
+				"songUri": "spotify:track:0B0k37yUWHEB9MMJaBB3Eo"
+			},
+			{
+				"trackName": "Know",
+				"songUri": "spotify:track:1oqbUOYw2KuxuUUHdcwMbS"
+			},
+			{
+				"trackName": "Find Me",
+				"songUri": "spotify:track:2Wr970IfovsSGnfkE08iMF"
+			},
+			{
+				"trackName": "Above The Clouds Of Pompeii",
+				"songUri": "spotify:track:3cnkPRKvkItP5xGfnAPsAg"
+			},
+			{
+				"trackName": "Which Will",
+				"songUri": "spotify:track:4OQg4N07cIEI5OJ3L4hiA6"
+			},
+			{
+				"trackName": "Broken Crown",
+				"songUri": "spotify:track:5RI4Ecj8kvkH5W7q7mw4HU"
+			},
+			{
+				"trackName": "Detroit",
+				"songUri": "spotify:track:5y7IfSDhBHFVnlGj1UrlA1"
+			},
+			{
+				"trackName": "Toxic",
+				"songUri": "spotify:track:6I9VzXrHxO9rA9A5euc8Ak"
+			},
+			{
+				"trackName": "Circus",
+				"songUri": "spotify:track:7jk7gqyEonmVVYahZN5zhW"
+			},
+			{
+				"trackName": "You",
+				"songUri": "spotify:track:2s3IW4qMGuPBR2ka7jI66n"
+			},
+			{
+				"trackName": "Skinny Love",
+				"songUri": "spotify:track:1NyFRrFiJAJIaR6icj1goI"
+			},
+			{
+				"trackName": "Towers",
+				"songUri": "spotify:track:5mMV6EaKeZWkGFvE1xg13n"
+			},
+			{
+				"trackName": "Free Ride",
+				"songUri": "spotify:track:0OsiXfbG1wYhJYVutbfPpr"
+			},
+			{
+				"trackName": "Orange Sky",
+				"songUri": "spotify:track:0Y1fueUFu8jQtUxdUmOojf"
+			},
+			{
+				"trackName": "We Turn Red",
+				"songUri": "spotify:track:0cv2LgkvEoQiGgFWcZaAMA"
+			}
+		],
 		artists: [
 			[
 				'Red Hot Chili Peppers',
@@ -730,26 +917,87 @@ const spotifyResults = [
 	{
 		Email: 'megan.field@hotmail.co.uk',
 		tracks: [
-			'Chill Out',
-			'Leaned Out',
-			'5050',
-			'It\'s A Vibe',
-			'The Healer',
-			'Sky Walker',
-			'Diddy Bop (feat. Cam O\'bi & Raury)',
-			'Never Played Me',
-			'Love$ick (feat. A$AP Rocky)',
-			'4 AM',
-			'Patience (Freestyle)',
-			'Murder She Wrote',
-			'Signs',
-			'The Way (feat. Chance the Rapper)',
-			'4r Da Squaw',
-			'Talk to Me',
-			'Locket',
-			'Wifey vs. WiFi / / / P.M.S. (feat. BR3)',
-			'Polaroids',
-			'P.Y.T. (Pretty Young Thing)'],
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+				"trackName": "Pink Moon",
+				"songUri": "spotify:track:1CbPLR6Xjo2nc0Pf13N0RS"
+			},
+			{
+				"trackName": "Cheap Thrills",
+				"songUri": "spotify:track:3S4px9f4lceWdKf0gWciFu"
+			},
+			{
+				"trackName": "Voulez-Vous",
+				"songUri": "spotify:track:4wZOmbYApgoF2zD9IHznDD"
+			},
+			{
+				"trackName": "It's Just My Skin",
+				"songUri": "spotify:track:0B0k37yUWHEB9MMJaBB3Eo"
+			},
+			{
+				"trackName": "Know",
+				"songUri": "spotify:track:1oqbUOYw2KuxuUUHdcwMbS"
+			},
+			{
+				"trackName": "Find Me",
+				"songUri": "spotify:track:2Wr970IfovsSGnfkE08iMF"
+			},
+			{
+				"trackName": "Above The Clouds Of Pompeii",
+				"songUri": "spotify:track:3cnkPRKvkItP5xGfnAPsAg"
+			},
+			{
+				"trackName": "Which Will",
+				"songUri": "spotify:track:4OQg4N07cIEI5OJ3L4hiA6"
+			},
+			{
+				"trackName": "Broken Crown",
+				"songUri": "spotify:track:5RI4Ecj8kvkH5W7q7mw4HU"
+			},
+			{
+				"trackName": "Detroit",
+				"songUri": "spotify:track:5y7IfSDhBHFVnlGj1UrlA1"
+			},
+			{
+				"trackName": "Toxic",
+				"songUri": "spotify:track:6I9VzXrHxO9rA9A5euc8Ak"
+			},
+			{
+				"trackName": "Circus",
+				"songUri": "spotify:track:7jk7gqyEonmVVYahZN5zhW"
+			},
+			{
+				"trackName": "You",
+				"songUri": "spotify:track:2s3IW4qMGuPBR2ka7jI66n"
+			},
+			{
+				"trackName": "Skinny Love",
+				"songUri": "spotify:track:1NyFRrFiJAJIaR6icj1goI"
+			},
+			{
+				"trackName": "Towers",
+				"songUri": "spotify:track:5mMV6EaKeZWkGFvE1xg13n"
+			},
+			{
+				"trackName": "Free Ride",
+				"songUri": "spotify:track:0OsiXfbG1wYhJYVutbfPpr"
+			},
+			{
+				"trackName": "Orange Sky",
+				"songUri": "spotify:track:0Y1fueUFu8jQtUxdUmOojf"
+			},
+			{
+				"trackName": "We Turn Red",
+				"songUri": "spotify:track:0cv2LgkvEoQiGgFWcZaAMA"
+			}	
+		],
 		artists: [
 			[
 				'Prince',
@@ -899,26 +1147,70 @@ const spotifyResults = [
 	{
 		Email: 'notspiderman@hotmail.com',
 		tracks: [
-			'Another New Day',
-			'You',
-			'Rosalinda\'s Eyes',
-			'Dreams',
-			'It\'s Just (House of Dupree)',
-			'Fear Of The Dark - 1998 Remastered Version',
-			'Patience (Freestyle)',
-			'Never Played Me',
-			'Diddy Bop (feat. Cam O\'bi & Raury)',
-			'Sky Walker',
-			'Wonderwall',
-			'Message In A Bottle',
-			'I Believe I Can Fly',
-			'Photoshop Handsome',
-			'My Kind Of Woman',
-			'Human Nature',
-			'Viva La Vida',
-			'Bette Davis Eyes',
-			'Radar Detector',
-			'She'
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+				"trackName": "Pink Moon",
+				"songUri": "spotify:track:1CbPLR6Xjo2nc0Pf13N0RS"
+			},
+			{
+				"trackName": "Cheap Thrills",
+				"songUri": "spotify:track:3S4px9f4lceWdKf0gWciFu"
+			},
+			{
+				"trackName": "Voulez-Vous",
+				"songUri": "spotify:track:4wZOmbYApgoF2zD9IHznDD"
+			},
+			{
+				"trackName": "It's Just My Skin",
+				"songUri": "spotify:track:0B0k37yUWHEB9MMJaBB3Eo"
+			},
+			{
+				"trackName": "Know",
+				"songUri": "spotify:track:1oqbUOYw2KuxuUUHdcwMbS"
+			},
+			{
+				"trackName": "Find Me",
+				"songUri": "spotify:track:2Wr970IfovsSGnfkE08iMF"
+			},
+			{
+				"trackName": "Above The Clouds Of Pompeii",
+				"songUri": "spotify:track:3cnkPRKvkItP5xGfnAPsAg"
+			},
+			{
+				"trackName": "Which Will",
+				"songUri": "spotify:track:4OQg4N07cIEI5OJ3L4hiA6"
+			},
+			{
+				"trackName": "Broken Crown",
+				"songUri": "spotify:track:5RI4Ecj8kvkH5W7q7mw4HU"
+			},
+			{
+				"trackName": "Detroit",
+				"songUri": "spotify:track:5y7IfSDhBHFVnlGj1UrlA1"
+			},
+			{
+				"trackName": "Toxic",
+				"songUri": "spotify:track:6I9VzXrHxO9rA9A5euc8Ak"
+			},
+			{
+				"trackName": "Circus",
+				"songUri": "spotify:track:7jk7gqyEonmVVYahZN5zhW"
+			},
+			{
+				"trackName": "You",
+				"songUri": "spotify:track:2s3IW4qMGuPBR2ka7jI66n"
+			},
+			{
+				"trackName": "The One and Only",
+				"songUri": "spotify:track:0cv2LgkvEoQiGgFWcZaAMA"
+			}
 		],
 		artists: [
 			[
@@ -1022,22 +1314,51 @@ const spotifyResults = [
 	{
 		Email: 'iraqioil2003@gmail.com',
 		tracks: [
-			'Night of the Long Knives',
-			'Honey Bee',
-			'The Awakening',
-			'We Turn Red',
-			'Signs',
-			'Run to the Hills - 1998 Remastered Version',
-			'Patience (Freestyle)',
-			'Murder She Wrote',
-			'Africa',
-			'All Star',
-			'4r Da Squaw',
-			'Talk to Me',
-			'Take On Me',
-			'America',
-			'Gold Sounds',
-			'Thriller'],
+			{
+			"trackName": "Money, Money, Money",
+			"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+		},
+		{
+			"trackName": "Papaoutai",
+			"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+		},
+		{
+			"trackName": "Pink Moon",
+			"songUri": "spotify:track:1CbPLR6Xjo2nc0Pf13N0RS"
+		},
+		{
+			"trackName": "Cheap Thrills",
+			"songUri": "spotify:track:3S4px9f4lceWdKf0gWciFu"
+		},
+		{
+			"trackName": "Voulez-Vous",
+			"songUri": "spotify:track:4wZOmbYApgoF2zD9IHznDD"
+		}, 
+		{
+					"trackName" : "Red Eyes",
+					"songUri" : "spotify:track:71jGGLe5VtEHjIk5dU2W3S"
+		},
+		{
+					"trackName" : "Just Another Girl",
+					"songUri" : "spotify:track:6y6KjfkOZMCbzwOPKKDwi0"
+		},
+		{
+					"trackName" : "10 Years Today",
+					"songUri" : "spotify:track:51hvz09iP6fsaKVFFBewm0"
+		},
+		{
+					"trackName" : "The Awakening",
+					"songUri" : "spotify:track:0X0wvZuhTcTU03Roz9fPJA"
+		},
+		{
+					"trackName" : "Fear Of The Dark - 1998 Remastered Version",
+					"songUri" : "spotify:track:0P4JuEXYJmu2Q7BTtQW5nR"
+		},
+		{
+					"trackName" : "Run For Cover",
+					"songUri" : "spotify:track:77wm0pMH1wLe2VnBcIEU2r"
+		}
+		],
 		artists: [
 			[
 				'Rihanna',
@@ -1144,27 +1465,38 @@ const spotifyResults = [
 	{
 		Email: 'communistmanifesto@live.co.uk',
 		tracks: [
-			'All These Things That I\'ve Done',
-			'Realize',
-			'Toxic',
-			'Zwitter',
-			'All We Do For Love',
-			'You\'ve Got Time',
-			'In Your Hands',
-			'Murder She Wrote',
-			'The Way (feat. Chance the Rapper)',
-			'Talk to Me',
-			'Broken Crown',
-			'This Is a Samba',
-			'Anthem',
-			'4 AM',
-			'Beez in the Trap - Instrumental Version',
-			'Polaroids',
-			'Big Brown Eyes',
-			'Umbrella',
-			'Highway To Hell',
-			'Hey Jude',
-			'Dog Days Are Over'
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+				"trackName": "Pink Moon",
+				"songUri": "spotify:track:1CbPLR6Xjo2nc0Pf13N0RS"
+			},
+			{
+				"trackName": "Cheap Thrills",
+				"songUri": "spotify:track:3S4px9f4lceWdKf0gWciFu"
+			},
+			{
+				"trackName": "Voulez-Vous",
+				"songUri": "spotify:track:4wZOmbYApgoF2zD9IHznDD"
+			},
+			{
+				"trackName": "It's Just My Skin",
+				"songUri": "spotify:track:0B0k37yUWHEB9MMJaBB3Eo"
+			},
+			{
+				"trackName": "Know",
+				"songUri": "spotify:track:1oqbUOYw2KuxuUUHdcwMbS"
+			},
+			{
+				"trackName": "Find Me",
+				"songUri": "spotify:track:2Wr970IfovsSGnfkE08iMF"
+			}
 		],
 		artists: [
 			[
@@ -1285,27 +1617,23 @@ const spotifyResults = [
 	{
 		Email: 'bedroom_tax_2017@conservatives.co.uk',
 		tracks: [
-			'This Is a Samba',
-			'Anthem',
-			'Find Me',
-			'That Ain’t Country',
-			'10 Years Today',
-			'Towers',
-			'Detroit',
-			'Birds of a Feather, We Rock Together',
-			'The Healer',
-			'All These Things That I\'ve Done',
-			'Realize',
-			'Toxic',
-			'Zwitter',
-			'Man In The Mirror',
-			'Smells Like Teen Spirit',
-			'Satsuma',
-			'Mayonnaise',
-			'Chocolate',
-			'Fairground',
-			'Yellow Submarine',
-			'God Save The Queen'],
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+				"trackName": "Pink Moon",
+				"songUri": "spotify:track:1CbPLR6Xjo2nc0Pf13N0RS"
+			},
+			{
+				"trackName" : "Red Eyes",
+				"songUri" : "spotify:track:71jGGLe5VtEHjIk5dU2W3S"
+			}
+		],
 		artists: [
 			[
 				'Bullet For My Valentine',
@@ -1427,26 +1755,18 @@ const spotifyResults = [
 	{
 		Email: 'LKBOI@hotmail.com',
 		tracks: [
-			'All Falls Down - Todd Edwards Remix',
-			'Big Brown Eyes',
-			'Beez in the Trap - Instrumental Version',
-			'chamakay',
-			'best of you',
-			'i believe i can fly',
-			'augustine',
-			'uncle ACE',
-			'E.V.P',
-			'Toxic',
-			'Circus',
-			'You',
-			'Skinny Love',
-			'Towers',
-			'Orange Sky',
-			'We Turn Red',
-			'Leaving It Up to You',
-			'Patience (Freestyle)',
-			'Murder She Wrote',
-			'Signs'
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+				"trackName": "Pink Moon",
+				"songUri": "spotify:track:1CbPLR6Xjo2nc0Pf13N0RS"
+			}
 		],
 		artists: [
 			[
@@ -1638,19 +1958,30 @@ const spotifyResults = [
 	{
 		Email: 'gatsby123@hotmail.com',
 		tracks: [
-			'It\'s A Vibe',
-			'The Healer',
-			'Sky Walker',
-			'Signs',
-			'Skinny Love',
-			'Towers',
-			'Orange Sky',
-			'We Turn Red',
-			'Leaving It Up to You',
-			'Dog Days Are Over',
-			'Applause',
-			'You\'ve Got Time',
-			'In Your Hands'
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+				"trackName": "Pink Moon",
+				"songUri": "spotify:track:1CbPLR6Xjo2nc0Pf13N0RS"
+			},
+			{
+						"trackName" : "Red Eyes",
+						"songUri" : "spotify:track:71jGGLe5VtEHjIk5dU2W3S"
+			},
+			{
+						"trackName" : "Just Another Girl",
+						"songUri" : "spotify:track:6y6KjfkOZMCbzwOPKKDwi0"
+			},
+			{
+						"trackName" : "10 Years Today",
+						"songUri" : "spotify:track:51hvz09iP6fsaKVFFBewm0"
+			}
 		],
 		artists: [
 			[
@@ -1809,19 +2140,30 @@ const spotifyResults = [
 	{
 		Email: 'amy_Q@hotmail.com',
 		tracks: [
-			'It\'s A Vibe',
-			'The Healer',
-			'Sky Walker',
-			'Signs',
-			'Skinny Love',
-			'Towers',
-			'Orange Sky',
-			'We Turn Red',
-			'Leaving It Up to You',
-			'Dog Days Are Over',
-			'Applause',
-			'You\'ve Got Time',
-			'In Your Hands'
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+				"trackName": "Pink Moon",
+				"songUri": "spotify:track:1CbPLR6Xjo2nc0Pf13N0RS"
+			},
+			{
+						"trackName" : "Red Eyes",
+						"songUri" : "spotify:track:71jGGLe5VtEHjIk5dU2W3S"
+			},
+			{
+						"trackName" : "Just Another Girl",
+						"songUri" : "spotify:track:6y6KjfkOZMCbzwOPKKDwi0"
+			},
+			{
+						"trackName" : "10 Years Today",
+						"songUri" : "spotify:track:51hvz09iP6fsaKVFFBewm0"
+			}
 		],
 		artists: [
 			[
@@ -1885,20 +2227,14 @@ const spotifyResults = [
 	{
 		Email: 'wileaf@hotmail.com',
 		tracks: [
-			'Money, Money, Money',
-			'Papaoutai',
-			'Cheap Thrills',
-			'Voulez-Vous',
-			'It\'s Just My Skin',
-			'Find Me',
-			'Broken Crown',
-			'Detroit',
-			'Toxic',
-			'Circus',
-			'You',
-			'Skinny Love',
-			'Towers',
-			'Orange Sky',
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			}
 		],
 		artists: [
 			[
@@ -1969,26 +2305,26 @@ const spotifyResults = [
 	{
 		Email: 'marge.baird@hotmail.com',
 		tracks: [
-			'Just Another Girl',
-			'The Awakening',
-			'10 Years Today',
-			'Worlds Collide',
-			'Find Me',
-			'10 Years Today',
-			'Mr Brightside',
-			'Nowhere Man',
-			'Yellow Submarine',
-			'Octopus\'s Garden',
-			'Taxman',
-			'Here Comes the Sun',
-			'Hey Jude',
-			'Revolution',
-			'Revolution 5',
-			'Happy',
-			'Eleanor Rigby',
-			'Downstream',
-			'Beez in the Trap - Instrumental Version',
-			'Jane'
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+						"trackName" : "Red Eyes",
+						"songUri" : "spotify:track:71jGGLe5VtEHjIk5dU2W3S"
+			},
+			{
+						"trackName" : "Just Another Girl",
+						"songUri" : "spotify:track:6y6KjfkOZMCbzwOPKKDwi0"
+			},
+			{
+						"trackName" : "10 Years Today",
+						"songUri" : "spotify:track:51hvz09iP6fsaKVFFBewm0"
+			}
 		],
 		artists: [
 			[
@@ -2136,26 +2472,26 @@ const spotifyResults = [
 	{
 		Email: 'john.l@hotmail.co.uk',
 		tracks: [
-			'All Falls Down - Todd Edwards Remix',
-			'Big Brown Eyes',
-			'All We Do For Love',
-			'Each Other',
-			'Can We Try',
-			'Night of the Long Knives',
-			'Realize',
-			'It\'s Just (House of Dupree)',
-			'Just Another Girl',
-			'The Awakening',
-			'10 Years Today',
-			'Fear Of The Dark - 1998 Remastered Version',
-			'Worlds Collide',
-			'Find Me',
-			'All Falls Down - Todd Edwards Remix',
-			'Big Brown Eyes',
-			'All We Do For Love',
-			'Each Other',
-			'Papaoutai',
-			'Girls'
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+						"trackName" : "Red Eyes",
+						"songUri" : "spotify:track:71jGGLe5VtEHjIk5dU2W3S"
+			},
+			{
+						"trackName" : "Just Another Girl",
+						"songUri" : "spotify:track:6y6KjfkOZMCbzwOPKKDwi0"
+			},
+			{
+						"trackName" : "10 Years Today",
+						"songUri" : "spotify:track:51hvz09iP6fsaKVFFBewm0"
+			}
 		],
 		artists: [
 			[
@@ -2315,25 +2651,26 @@ const spotifyResults = [
 	{
 		Email: 'josephjkson@hotmail.com',
 		tracks: [
-			'All Falls Down - Todd Edwards Remix',
-			'Love Love Love',
-			'All We Do For Love',
-			'Sweet Child O Mine',
-			'I want to break free',
-			'Waterpolo',
-			'M&Ms',
-			'Help ive got tissue up my nose',
-			'Crazy In Love',
-			'Californication',
-			'Shake it Off',
-			'G-d Save the Queen',
-			'Worlds Collide',
-			'Find Me',
-			'All Falls Down - Todd Edwards Remix',
-			'Macarana',
-			'Like a Virgin',
-			'Money Money Money',
-			'I was Made for Loving you Baby',
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+						"trackName" : "Red Eyes",
+						"songUri" : "spotify:track:71jGGLe5VtEHjIk5dU2W3S"
+			},
+			{
+						"trackName" : "Just Another Girl",
+						"songUri" : "spotify:track:6y6KjfkOZMCbzwOPKKDwi0"
+			},
+			{
+						"trackName" : "10 Years Today",
+						"songUri" : "spotify:track:51hvz09iP6fsaKVFFBewm0"
+			}
 		],
 		artists: [
 			[
@@ -2444,25 +2781,26 @@ const spotifyResults = [
 	{
 		Email: 'xoxchazbase@hotmail.co.uk',
 		tracks: [
-			'Snickers',
-			'Twix',
-			'Terrys Choco orange',
-			'Watsits',
-			'Tiffins',
-			'Apple',
-			'M&Ms',
-			'Tangerine',
-			'Pringles',
-			'Sunbites',
-			'Mango',
-			'Blueberry',
-			'Popcorn',
-			'She\'s blowing up like a balloon! like a blueberry',
-			'gobstoppers',
-			'gravy',
-			'pus',
-			'strawberry milk',
-			'un cafe',
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+						"trackName" : "Red Eyes",
+						"songUri" : "spotify:track:71jGGLe5VtEHjIk5dU2W3S"
+			},
+			{
+						"trackName" : "Just Another Girl",
+						"songUri" : "spotify:track:6y6KjfkOZMCbzwOPKKDwi0"
+			},
+			{
+						"trackName" : "10 Years Today",
+						"songUri" : "spotify:track:51hvz09iP6fsaKVFFBewm0"
+			}
 		],
 		artists: [
 			[
@@ -2578,25 +2916,14 @@ const spotifyResults = [
 	{
 		Email: 'winter@iscoming.com',
 		tracks: [
-			'Red Eyes',
-			'Just Another Girl',
-			'Murder She Wrote',
-			'Signs',
-			'The Way (feat. Chance the Rapper)',
-			'4r Da Squaw',
-			'Talk to Me',
-			'Locket',
-			'Wifey vs. WiFi / / / P.M.S. (feat. BR3)',
-			'Polaroids',
-			'P.Y.T. (Pretty Young Thing)',
-			'Money, Money, Money',
-			'Papaoutai',
-			'Cheap Thrills',
-			'Voulez-Vous',
-			'It\'s Just My Skin',
-			'Find Me',
-			'Broken Crown',
-			'Detroit'
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			}
 		],
 		artists: [
 			[
@@ -2756,22 +3083,38 @@ const spotifyResults = [
 	{
 		Email: 'jane@gmail.com',
 		tracks: [
-			'Realize',
-			'It\'s Just (House of Dupree)',
-			'Birds of a Feather, We Rock Together',
-			'Another New Day',
-			'Honey Bee',
-			'Dreams',
-			'Sully Suite',
-			'King Size',
-			'Cherokee',
-			'Rosalinda\'s Eyes',
-			'This Is a Samba',
-			'Boys',
-			'Downstream',
-			'Forever Yours',
-			'Country Boy (feat. George Jones & Charlie Daniels)',
-			'All These Things That I\'ve Done'
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+						"trackName" : "Red Eyes",
+						"songUri" : "spotify:track:71jGGLe5VtEHjIk5dU2W3S"
+			},
+			{
+						"trackName" : "Just Another Girl",
+						"songUri" : "spotify:track:6y6KjfkOZMCbzwOPKKDwi0"
+			},
+			{
+						"trackName" : "10 Years Today",
+						"songUri" : "spotify:track:51hvz09iP6fsaKVFFBewm0"
+			},
+			{
+						"trackName" : "The Awakening",
+						"songUri" : "spotify:track:0X0wvZuhTcTU03Roz9fPJA"
+			},
+			{
+						"trackName" : "Fear Of The Dark - 1998 Remastered Version",
+						"songUri" : "spotify:track:0P4JuEXYJmu2Q7BTtQW5nR"
+			},
+			{
+						"trackName" : "Run For Cover",
+						"songUri" : "spotify:track:77wm0pMH1wLe2VnBcIEU2r"
+			}
 		],
 		artists: [
 			[
@@ -2915,12 +3258,38 @@ const spotifyResults = [
 	{
 		Email: 's.andrews@gmail.com',
 		tracks: [
-			'This Is a Samba',
-			'Boys',
-			'Downstream',
-			'Forever Yours',
-			'Country Boy (feat. George Jones & Charlie Daniels)',
-			'All These Things That I\'ve Done'
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+						"trackName" : "Red Eyes",
+						"songUri" : "spotify:track:71jGGLe5VtEHjIk5dU2W3S"
+			},
+			{
+						"trackName" : "Just Another Girl",
+						"songUri" : "spotify:track:6y6KjfkOZMCbzwOPKKDwi0"
+			},
+			{
+						"trackName" : "10 Years Today",
+						"songUri" : "spotify:track:51hvz09iP6fsaKVFFBewm0"
+			},
+			{
+						"trackName" : "The Awakening",
+						"songUri" : "spotify:track:0X0wvZuhTcTU03Roz9fPJA"
+			},
+			{
+						"trackName" : "Fear Of The Dark - 1998 Remastered Version",
+						"songUri" : "spotify:track:0P4JuEXYJmu2Q7BTtQW5nR"
+			},
+			{
+						"trackName" : "Run For Cover",
+						"songUri" : "spotify:track:77wm0pMH1wLe2VnBcIEU2r"
+			}
 		],
 		artists: [
 			[
@@ -2984,24 +3353,38 @@ const spotifyResults = [
 	{
 		Email: 'damnPeasants@gmail.com',
 		tracks: [
-			'Run For Cover',
-			'Run to the Hills - 1998 Remastered Version',
-			'Cries In Vain',
-			'All These Things I Hate (Revolve Around Me)',
-			'That Ain’t Country',
-			'Anthem',
-			'Forever Yours',
-			'Country Boy (feat. George Jones & Charlie Daniels)',
-			'Chill Out',
-			'Leaned Out',
-			'5050',
-			'It\'s A Vibe',
-			'The Healer',
-			'Sky Walker',
-			'Diddy Bop (feat. Cam O\'bi & Raury)',
-			'Never Played Me',
-			'Love$ick (feat. A$AP Rocky)',
-			'4 AM'
+			{
+				"trackName": "Money, Money, Money",
+				"songUri": "spotify:track:2ijsITOdUkUeF8EW7OfYBr"
+			},
+			{
+				"trackName": "Papaoutai",
+				"songUri": "spotify:track:09TcIuH1ZO7i4vicWKoaN2"
+			},
+			{
+				"trackName" : "Red Eyes",
+				"songUri" : "spotify:track:71jGGLe5VtEHjIk5dU2W3S"
+			},
+			{
+						"trackName" : "Just Another Girl",
+						"songUri" : "spotify:track:6y6KjfkOZMCbzwOPKKDwi0"
+			},
+			{
+						"trackName" : "10 Years Today",
+						"songUri" : "spotify:track:51hvz09iP6fsaKVFFBewm0"
+			},
+			{
+						"trackName" : "The Awakening",
+						"songUri" : "spotify:track:0X0wvZuhTcTU03Roz9fPJA"
+			},
+			{
+						"trackName" : "Fear Of The Dark - 1998 Remastered Version",
+						"songUri" : "spotify:track:0P4JuEXYJmu2Q7BTtQW5nR"
+			},
+			{
+						"trackName" : "Run For Cover",
+						"songUri" : "spotify:track:77wm0pMH1wLe2VnBcIEU2r"
+			}
 		],
 		artists: [
 			[
