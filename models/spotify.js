@@ -68,7 +68,7 @@ function storeToken(req, res, next) {
 function getTopArtistsAndTracks(tokens, res) {
 
 	const topTrackOptions = {
-		url: 'https://api.spotify.com/v1/me/top/tracks',
+		url: 'https://api.spotify.com/v1/me/top/tracks?limit=50',
 		json: true,
 		headers: {
 			'Authorization': 'Bearer ' + tokens.access_token
@@ -87,7 +87,7 @@ function getTopArtistsAndTracks(tokens, res) {
 	});
   
 	const topArtistOptions = {
-		url: 'https://api.spotify.com/v1/me/top/artists',
+		url: 'https://api.spotify.com/v1/me/top/artists?limit=50',
 		json: true,
 		headers: {
 			'Authorization': 'Bearer ' + tokens.access_token
