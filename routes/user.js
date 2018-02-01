@@ -1,6 +1,6 @@
 const express = require('express');
 
-const {sendUserProfile, updateUserProfile, updatePicture, updateBio, updatePrefs, updateAgeRange} = require('../controllers/user');
+const {sendUserProfile, updateUserProfile, updatePicture, updateBio, updatePrefs} = require('../controllers/user');
 const {getMatches, updateRejections, sendNewMatches, sendIncomingMatches} = require('../controllers/matches');
 
 const userRouter = express.Router();
