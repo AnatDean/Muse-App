@@ -11,7 +11,6 @@ function getEligible (email) {
 		.then(user => {
 			let current = user;
 			let currentAgeRange = current.AgeRange[0];
-			console.log(currentAgeRange)
 			return Promise.all([User.find({$and: [{Age : {$gte: currentAgeRange.min}},{Age : {$lte: currentAgeRange.max}}]}),	current])   
 		})
 		.then(([eligibleAges, current]) => { 					      
@@ -30,11 +29,10 @@ function getEligible (email) {
 }
 
 function ratePeople (currentUseremail, emails) {
-	// console.log(currentUseremail, emails, 'ieuhgelzhgoerihg' )
 	return Spotify.find()
-		.then(eligibleSpotifys => { 
-			let people = eligibleSpotifys.filter(person => {
-				if (emails.includes(person.Email)) return 1;
+	.then(eligibleSpotifys => { 
+		let people = eligibleSpotifys.filter(person => {
+			if (emails.includes(person.Email)) return 1;
 				else return 0;
 			});
 			return Promise.all([Spotify.findOne({Email: currentUseremail}), people])
@@ -44,8 +42,8 @@ function ratePeople (currentUseremail, emails) {
 				function(person) {
 					return comparePeople(person, userObject);     
 				}));
-		})
-		.then(matches => {
+			})
+			.then(matches => {
 			return matches.sort((a,b) => {
 				return b.rating - a.rating;});
 		});
@@ -63,7 +61,6 @@ function addChoice (currentEmail, personEmail, choice) {
 
 
 function comparePeople (person, current) {
-	// console.log(person, '*************', current);
 	return User.findOne({Email: person.Email}).lean()
 		.then(userProfile => {
 			let currentTrackNames = current.tracks.map(track=> track.trackName)
@@ -73,7 +70,6 @@ function comparePeople (person, current) {
 				artists: [],
 				genres: []
 			};
-
 			person.tracks.forEach((track) => {
 				if (currentTrackNames.includes(track.trackName)) {
 					userProfile.rating += 10;
@@ -90,12 +86,11 @@ function comparePeople (person, current) {
 			});
 			
 			for (let key in current.genres[0]) {
-				if (person.genres.hasOwnProperty(key)) {
-					userProfile.rating += person.genres[key] * 2;
+				if (person.genres[0].hasOwnProperty(key)) {
+					userProfile.rating += person.genres[0][key] * 2;
 					userProfile.matchingOn.genres.push(key);
 				}
 			}		
-				
 			return userProfile;
 		});
 }
@@ -127,7 +122,6 @@ function getIncomingMatches(currentEmail) {
 				ratePeople(currentEmail, mutualEmails)
 			])
 		.then(([likedYouSharedSongs, mutualSharedSongs]) => {
-
 			return [likedYouSharedSongs, mutualSharedSongs];
 		})
 	});
