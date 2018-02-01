@@ -13,11 +13,11 @@ function getEligible (email) {
 			let currentAgeRange = current.AgeRange[0];
 			return Promise.all([User.find({$and: [{Age : {$gte: currentAgeRange.min}},{Age : {$lte: currentAgeRange.max}}]}),	current])   
 		})
-		.then(([eligibleAges, current]) => { 					      
+		.then(([eligibleAges, current]) => { 	
 			return eligibleAges.filter(person => {
 				if (
 					current.Email === person.Email ||
-					current.Age < person.AgeRange[0] || current.Age > person.AgeRange[1] ||
+					current.Age < person.AgeRange[0].min || current.Age > person.AgeRange[0].max ||
 					!current.GenderPreference.includes(person.Gender) ||
 					!person.GenderPreference.includes(current.Gender) ||
 					current.Rejected.includes(person.Email) ||
