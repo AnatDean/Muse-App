@@ -1,4 +1,4 @@
-const { fetchUserProfile, patchProfilePic, patchBio, patchPrefs, patchAgeRange } = require('../models/user');
+const { fetchUserProfile, patchProfilePic, patchBio, patchPrefs} = require('../models/user');
 const { saveFormData } = require('../models/addToDB');
 let {getEmail} = require('../models/spotify');
 
