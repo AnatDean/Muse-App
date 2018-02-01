@@ -24,8 +24,8 @@ function patchBio(userEmail, incBio) {
 		.then(profile => profile);
 }
 
-function patchPrefs(userEmail, genderPrefs, location) {
-	return User.findOneAndUpdate({Email: userEmail}, {$set: {GenderPreference: genderPrefs, Area: location}}, {new: true})
+function patchPrefs(userEmail, genderPrefs, location, ageRange) {
+	return User.findOneAndUpdate({Email: userEmail}, {$set: {GenderPreference: genderPrefs, Area: location, AgeRange: ageRange}}, {new: true})
 		.then(profile => profile);
 }
 
