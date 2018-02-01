@@ -1,4 +1,4 @@
-const { fetchUserProfile, patchProfilePic, patchBio, patchPrefs } = require('../models/user');
+const { fetchUserProfile, patchProfilePic, patchBio, patchPrefs, patchAgeRange } = require('../models/user');
 const { saveFormData } = require('../models/addToDB');
 let {getEmail} = require('../models/spotify');
 
@@ -32,8 +32,8 @@ function updateBio(req, res, next) {
 
 function updatePrefs(req, res, next) {
 	const email = getEmail(req);
-	const {genderPrefs, location} = req.body;
-		return patchPrefs(email, genderPrefs, location)
+	const {genderPrefs, location, ageRange} = req.body;
+		return patchPrefs(email, genderPrefs, location, ageRange)
 			.then(profile => res.send(profile));
 }
 
