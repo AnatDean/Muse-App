@@ -14,7 +14,7 @@ function authApp(req, res, next) {
 		response_type: 'code',
 		client_id: client_id,
 		scope: scope,
-		redirect_uri: 'http://localhost:3000/api/authorised'
+		redirect_uri: 'https://floating-hollows-76636.herokuapp.com/api/authorised'
 	});
 	res.redirect('https://accounts.spotify.com/authorize?' + queries );
 }
